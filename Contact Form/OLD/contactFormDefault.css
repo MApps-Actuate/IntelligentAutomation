@@ -1,0 +1,157 @@
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+	width: 100%; /* Full width */
+	padding: 12px; /* Some padding */  
+	border: 1px solid #ccc; /* Gray border */
+	border-radius: 4px; /* Rounded borders */
+	box-sizing: border-box; /* Make sure that padding and width stays in place */
+	/*margin-bottom: 30px;  Bottom margin */
+	resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+	background-color: #f9f9f9;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+	background-color: #2e3d98;
+	color: white;
+	padding: 12px 150px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	float: right;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+	background-color: #5a77a0;
+}
+
+label{
+	display: block;
+	margin-bottom: 6px;
+}
+
+
+
+h1{
+	color: #2e3d98;
+	font-weight: 400;
+	font-size: 2em;
+	background-color: #e1e8f6;
+	margin: 0px;
+	padding: 20px;
+}
+
+table.basicTable td{
+	padding: 10px;
+	border-bottom: 1px solid #ccc; 
+	text-align: left;
+}
+
+table.basicTable{
+	border-collapse: collapse;
+	border-top: 1px solid #ccc; 
+	width: 100%;
+}
+
+.contactHeader{
+	background-color: #e1e8f6;
+}
+
+.outputContainer {
+	background-color: #ffffff;
+}
+
+.pageRow{
+	height: 80%;
+}
+
+.tableWrapper{
+	padding-top: 25px;
+}
+
+/* Add a background color and some padding around the form */
+.formContainer {
+	padding: 20px;
+}
+
+.wrapper{
+	max-width: 960px;
+	margin: auto;
+}
+
+.contactColumn1 {
+  float: left;
+  width: 49.5%;
+}
+
+.contactColumn2 {
+	float: left;
+	width: 49.5%;
+	padding-left: 1%
+}
+
+/* Clear floats after the columns */
+.contactRow:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-bottom: 30px;
+}
+
+.submitRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Clear floats after the columns */
+.pageRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+.leftButton{
+	border-right: 1px solid #ccc;
+	border-left: none;
+	border-bottom: none;
+	border-top: none;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+#xmlTextArea{
+	border: none;
+	height: 100%;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f0f2f5;
+}

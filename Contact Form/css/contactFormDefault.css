@@ -1,0 +1,186 @@
+@font-face {
+  font-family: OpenText Sans;
+  src: url('OpenTextSans_W_Lt.woff2') format('woff'),
+	   url('OpenTextSans_W_Rg.woff2') format('woff'),
+	   url('OpenTextSans_W_Bd.woff2') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+#banner {
+	background-image: linear-gradient(to right, #221E6F, #6D65FF) !important;
+	font-family: Lato !important; 
+	color: #777777 !important; 
+	font-size: 12pt !important;
+}
+
+#bannerHeading td {
+	font-family: "OpenText Sans" !important; 
+	color: #ffffff !important; 
+	font-size: 14pt !important;
+}
+
+span {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type=text], select, textarea {
+	width: 100%; /* Full width */
+	padding: 12px; /* Some padding */  
+	border: 1px solid #ccc; /* Gray border */
+	border-radius: 4px; /* Rounded borders */
+	box-sizing: border-box; /* Make sure that padding and width stays in place */
+	/*margin-bottom: 30px;  Bottom margin */
+	resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+	background-color: #f9f9f9;
+}
+
+input[type=submit] {
+	background-color: #2e3d98;
+	color: white;
+	padding: 12px 150px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+	float: right;
+}
+
+input[type=submit]:hover {
+	background-color: #5a77a0;
+}
+
+label{
+	display: block;
+	margin-bottom: 6px;
+}
+
+h1{
+	color: #2e3d98;
+	font-weight: 400;
+	font-size: 2em;
+	background-color: #e1e8f6;
+	margin: 0px;
+	padding: 20px;
+}
+
+table.bannerHeading td{
+	vertical-align: middle;
+}
+
+table.basicTable td{
+	padding: 10px;
+	border-bottom: 1px solid #ccc; 
+	text-align: left;
+}
+
+table.basicTable{
+	border-collapse: collapse;
+	border-top: 1px solid #ccc; 
+	width: 100%;
+}
+
+.contactHeader{
+	background-color: #e1e8f6;
+}
+
+.outputContainer {
+	background-color: #ffffff;
+}
+
+.pageRow{
+	height: 80%;
+}
+
+.tableWrapper{
+	padding-top: 25px;
+}
+
+/* Add a background color and some padding around the form */
+.formContainer {
+	padding: 20px;
+}
+
+.wrapper{
+	max-width: 960px;
+	margin: auto;
+}
+
+.contactColumn1 {
+  float: left;
+  width: 49.5%;
+}
+
+.contactColumn2 {
+	float: left;
+	width: 49.5%;
+	padding-left: 1%
+}
+
+/* Clear floats after the columns */
+.contactRow:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-bottom: 30px;
+}
+
+.submitRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Clear floats after the columns */
+.pageRow:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border-top: 1px solid #969cb0;
+	background-image: linear-gradient(to right, #221E6F, #6D65FF) !important;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-family: Lato !important; 
+	color: #8088a3;
+	font-size: 10pt;
+	border-bottom: 3px solid transparent;
+}
+
+.leftButton{
+	border: none;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	color: #ffffff;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	border-bottom: 3px solid #2298fb;
+	color: #ffffff;
+}
+
+#xmlTextArea{
+	border: none;
+	height: 100%;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f0f2f5;
+}

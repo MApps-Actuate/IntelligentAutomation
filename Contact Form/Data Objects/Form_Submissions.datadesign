@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamart xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.excel" name="Form Excel" id="2">
+            <property name="URI">Data/Contact Us form submissions 4-4-2019.xlsx</property>
+            <property name="INCLCOLUMNNAME">yes</property>
+            <property name="INCLTYPELINE">no</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.excel.dataSet" name="Form Results" id="3">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Date Submitted</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Date Submitted</text-property>
+                    <text-property name="heading">Date Submitted</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Inquiry Type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Inquiry Type</text-property>
+                    <text-property name="heading">Inquiry Type</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Country</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Country</text-property>
+                    <text-property name="heading">Country</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">State or Province</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">State or Province</text-property>
+                    <text-property name="heading">State or Province</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Reason for Contact</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Reason for Contact</text-property>
+                    <text-property name="heading">Reason for Contact</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Priority Level</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Priority Level</text-property>
+                    <text-property name="heading">Priority Level</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Date Submitted</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Inquiry Type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Country</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">State or Province</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Reason for Contact</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Priority Level</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Form Excel</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Date Submitted</property>
+                    <property name="nativeName">Date Submitted</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Inquiry Type</property>
+                    <property name="nativeName">Inquiry Type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Country</property>
+                    <property name="nativeName">Country</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">State or Province</property>
+                    <property name="nativeName">State or Province</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Reason for Contact</property>
+                    <property name="nativeName">Reason for Contact</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Priority Level</property>
+                    <property name="nativeName">Priority Level</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Date Submitted", "Inquiry Type", "Country", "State or Province", "Reason for Contact", "Priority Level" from "/C:/Users/jfreeman/Documents/BIRTWorkspace/iHub 16.4/Contact Form/Data/Contact Us form submissions 4-4-2019.xlsx" : {"Date Submitted","Date Submitted",TIMESTAMP;"Inquiry Type","Inquiry Type",STRING;"Country","Country",STRING;"State or Province","State or Province",STRING;"Reason for Contact","Reason for Contact",STRING;"Priority Level","Priority Level",INT}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Date Submitted</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Date Submitted</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Date Submitted</design:label>
+            <design:formattingHints>
+              <design:displaySize>0</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Inquiry Type</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Inquiry Type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Inquiry Type</design:label>
+            <design:formattingHints>
+              <design:displaySize>0</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Country</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Country</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Country</design:label>
+            <design:formattingHints>
+              <design:displaySize>0</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>State or Province</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>State or Province</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>State or Province</design:label>
+            <design:formattingHints>
+              <design:displaySize>0</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Reason for Contact</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Reason for Contact</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Reason for Contact</design:label>
+            <design:formattingHints>
+              <design:displaySize>0</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <property name="WORKSHEETS">FormSubmissions-11</property>
+        </oda-data-set>
+    </data-sets>
+    <property name="linkedDataModels">
+        <linked-data-model name="Data Model" id="20">
+            <property name="aliasDataSets">
+                <alias-data-set name="Form Results" id="28">
+                    <property name="originDataSet">Form Results</property>
+                </alias-data-set>
+            </property>
+            <property name="drillPaths">
+                <drill-path id="29">
+                    <text-property name="displayName">Date Submitted</text-property>
+                    <simple-property-list name="drillPathColumns">
+                        <value>dataSetRow["Date Submitted"]["Year"]</value>
+                        <value>dataSetRow["Date Submitted"]["Quarter"]</value>
+                        <value>dataSetRow["Date Submitted"]["Month"]</value>
+                    </simple-property-list>
+                </drill-path>
+                <drill-path id="30">
+                    <text-property name="displayName">Location</text-property>
+                    <simple-property-list name="drillPathColumns">
+                        <value>dataSetRow["Country"]</value>
+                        <value>dataSetRow["State or Province"]</value>
+                    </simple-property-list>
+                </drill-path>
+            </property>
+            <property name="categories">
+                <category name="Form Results" id="21">
+                    <property name="categoryColumns">
+                        <category-column name="Date Submitted" id="22">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">Date Submitted</property>
+                        </category-column>
+                        <category-column name="Inquiry Type" id="23">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">Inquiry Type</property>
+                        </category-column>
+                        <category-column name="Country" id="24">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">Country</property>
+                        </category-column>
+                        <category-column name="State or Province" id="25">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">State or Province</property>
+                        </category-column>
+                        <category-column name="Reason for Contact" id="26">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">Reason for Contact</property>
+                        </category-column>
+                        <category-column name="Priority Level" id="27">
+                            <property name="aliasDataSet">Data Model/Form Results</property>
+                            <property name="resultSetColumnName">Priority Level</property>
+                        </category-column>
+                    </property>
+                </category>
+            </property>
+            <property name="pushDown">true</property>
+        </linked-data-model>
+    </property>
+</datamart>

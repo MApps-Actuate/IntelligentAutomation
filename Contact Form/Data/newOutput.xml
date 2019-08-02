@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sentiment subjectivity="opinion" tone="negative"/>
+    <complexConcepts>
+        <concept>measles outbreak</concept>
+        <concept>news conference</concept>
+        <concept>health officials</concept>
+        <concept>public health</concept>
+        <concept>unvaccinated children</concept>
+        <concept>public health emergency</concept>
+        <concept>unvaccinated people</concept>
+        <concept>affected areas</concept>
+        <concept>mandatory vaccination order</concept>
+        <concept>vaccination records</concept>
+    </complexConcepts>
+    <simpleConcepts>
+        <concept>measles</concept>
+        <concept>vaccination</concept>
+        <concept>health</concept>
+        <concept>officials</concept>
+        <concept>outbreak</concept>
+        <concept>child</concept>
+        <concept>cases</concept>
+        <concept>conference</concept>
+        <concept>parents</concept>
+        <concept>vaccine</concept>
+    </simpleConcepts>
+    <terms>
+        <cartridge id="PN">
+            <category/>
+            <category/>
+            <category>Israel</category>
+            <category>Barbot</category>
+            <category>Blasio</category>
+            <category>Bill de Blasio</category>
+            <category>Shannon Stapleton</category>
+            <category>Herminia Palacio</category>
+            <category>Rockland County</category>
+        </cartridge>
+        <cartridge id="GL">
+            <category>United States of America</category>
+            <category>Israel</category>
+            <category>Brooklyn, Delaware County, New York</category>
+            <category>Brooklyn, New York</category>
+            <category>New York</category>
+            <category>New York, New York</category>
+            <category>Rockland County, New York</category>
+            <category>Shannon, Quebec</category>
+        </cartridge>
+        <cartridge id="ON">
+            <category>Health Department</category>
+            <category>Reuters AG</category>
+            <category>U.S. Centers for Disease Control and Prevention</category>
+        </cartridge>
+    </terms>
+    <categories>
+        <kb kbid="IPTC">
+            <category>14006001 - parent and child</category>
+            <category>07008000 - preventative medicine</category>
+            <category>11008000 - local authority</category>
+            <category>11006007 - government departments</category>
+        </kb>
+        <kb kbid="LCTGM">
+            <category>008196 - Press conferences</category>
+            <category>003131 - Diseases</category>
+            <category>002364 - Communicable diseases</category>
+            <category>004933 - Health</category>
+            <category>009592 - Sick persons</category>
+        </kb>
+    </categories>
+</root>

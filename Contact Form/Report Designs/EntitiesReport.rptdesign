@@ -1,0 +1,1668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="XMLSource" id="6">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">'&lt;?xml version="1.0" encoding="UTF-8"?>&lt;root>&lt;sentiment subjectivity="opinion" tone="negative"/>&lt;complexConcepts>&lt;concept>measles outbreak&lt;/concept>&lt;concept>news conference&lt;/concept>&lt;concept>health officials&lt;/concept>&lt;concept>public health&lt;/concept>&lt;concept>unvaccinated children&lt;/concept>&lt;concept>public health emergency&lt;/concept>&lt;concept>unvaccinated people&lt;/concept>&lt;concept>affected areas&lt;/concept>&lt;concept>mandatory vaccination order&lt;/concept>&lt;concept>vaccination records&lt;/concept>&lt;/complexConcepts>&lt;simpleConcepts>&lt;concept>measles&lt;/concept>&lt;concept>vaccination&lt;/concept>&lt;concept>health&lt;/concept>&lt;concept>officials&lt;/concept>&lt;concept>outbreak&lt;/concept>&lt;concept>child&lt;/concept>&lt;concept>cases&lt;/concept>&lt;concept>conference&lt;/concept>&lt;concept>parents&lt;/concept>&lt;concept>vaccine&lt;/concept>&lt;/simpleConcepts>&lt;terms>&lt;cartridge id="PN">&lt;category/>&lt;category/>&lt;category>Israel&lt;/category>&lt;category>Barbot&lt;/category>&lt;category>Blasio&lt;/category>&lt;category>Bill de Blasio&lt;/category>&lt;category>Shannon Stapleton&lt;/category>&lt;category>Herminia Palacio&lt;/category>&lt;category>Rockland County&lt;/category>&lt;/cartridge>&lt;cartridge id="GL">&lt;category>United States of America&lt;/category>&lt;category>Israel&lt;/category>&lt;category>Brooklyn, Delaware County, New York&lt;/category>&lt;category>Brooklyn, New York&lt;/category>&lt;category>New York&lt;/category>&lt;category>New York, New York&lt;/category>&lt;category>Rockland County, New York&lt;/category>&lt;category>Shannon, Quebec&lt;/category>&lt;/cartridge>&lt;cartridge id="ON">&lt;category>Health Department&lt;/category>&lt;category>Reuters AG&lt;/category>&lt;category>U.S. Centers for Disease Control and Prevention&lt;/category>&lt;/cartridge>&lt;/terms>&lt;categories>&lt;kb kbid="IPTC">&lt;category>14006001 - parent and child&lt;/category>&lt;category>07008000 - preventative medicine&lt;/category>&lt;category>11008000 - local authority&lt;/category>&lt;category>11006007 - government departments&lt;/category>&lt;/kb>&lt;kb kbid="LCTGM">&lt;category>008196 - Press conferences&lt;/category>&lt;category>003131 - Diseases&lt;/category>&lt;category>002364 - Communicable diseases&lt;/category>&lt;category>004933 - Health&lt;/category>&lt;category>009592 - Sick persons&lt;/category>&lt;/kb>&lt;/categories>&lt;/root>'</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="XML Paramater" id="38"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="Entities" id="5">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Cartridge ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Entity</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Cartridge Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Cartridge ID</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Entity</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cartridge Name</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Cartridge ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Entity</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Cartridge Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr2 = xpath.compile("/root/terms/cartridge/category");
+// run the query and get a nodeset
+nodes = expr2.evaluate(doc, XPathConstants.NODESET);
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	row["Entity"] = nodes.item(x).getTextContent();
+	row["Cartridge ID"] = nodes.item(x).getParentNode().getAttributes().getNamedItem("id").getNodeValue();
+	if(row["Cartridge ID"] == "ON"){
+		row["Cartridge Name"] = "Orginizations";
+	}else if(row["Cartridge ID"] == "PN"){
+		row["Cartridge Name"] = "People";
+	}else if(row["Cartridge ID"] == "GL"){
+		row["Cartridge Name"] = "Places";
+	}else{
+		row["Cartridge Name"] = "Other Entity";
+	}
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+        <script-data-set name="Complex Concepts" id="39">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">Complex Concept</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Complex Concept</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Complex Concept</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr2 = xpath.compile("/root/complexConcepts/concept");
+// run the query and get a nodeset
+nodes = expr2.evaluate(doc, XPathConstants.NODESET);
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	row["Complex Concept"] = nodes.item(x).getTextContent();
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+        <script-data-set name="Simple Concepts" id="40">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Simple Concept</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Simple Concept</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Simple Concept</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr2 = xpath.compile("/root/simpleConcepts/concept");
+// run the query and get a nodeset
+nodes = expr2.evaluate(doc, XPathConstants.NODESET);
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	row["Simple Concept"] = nodes.item(x).getTextContent();
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+        <script-data-set name="Categories" id="70">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Knowledge Base</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Category</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Priority Level</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Knowledge Base</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Category</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Priority Level</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Knowledge Base</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Category</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Priority Level</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr = xpath.compile("/root/categories/kb/category");
+var expr2 = xpath.compile("/root/sentiment");
+// run the query and get a nodeset
+nodes = expr.evaluate(doc, XPathConstants.NODESET);
+var nodes2 = expr2.evaluate(doc, XPathConstants.NODESET);
+vSentiment = nodes2.item(0).getAttributes().getNamedItem("tone").getNodeValue();
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	var category = nodes.item(x).getTextContent();
+	var categoryClean = "";
+	
+	if(category.indexOf("-") >0){
+		categoryClean = category.substring(category.indexOf("-")+2);
+	}else{
+		categoryClean = category;
+	}
+	
+	var priorityLevel = 4;
+	
+	if(categoryClean == "Customer Support"){
+		priorityLevel = 3;
+	}if(vSentiment == "negative"){
+		priorityLevel = priorityLevel-1;
+	}
+	
+	row["Category"] = categoryClean;
+	row["Knowledge Base"] = nodes.item(x).getParentNode().getAttributes().getNamedItem("kbid").getNodeValue();
+	row["Priority Level"] = priorityLevel;
+	
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+        <script-data-set name="Sentiment" id="207">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Subjectivity</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Tone</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Subjectivity</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Tone</property>
+                    <property name="analysis">dimension</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Subjectivity</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Tone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr2 = xpath.compile("/root/sentiment");
+// run the query and get a nodeset
+nodes = expr2.evaluate(doc, XPathConstants.NODESET);
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	var category = nodes.item(x).getTextContent();
+	row["Subjectivity"] = nodes.item(x).getAttributes().getNamedItem("subjectivity").getNodeValue();
+	row["Tone"] = nodes.item(x).getAttributes().getNamedItem("tone").getNodeValue();
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <property name="backgroundColor">#F0F2F5</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="184">
+            <property name="width">958px</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Sentiment</property>
+                    <expression name="expression" type="javascript">""</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">PriorityTemp</property>
+                    <expression name="expression" type="javascript">Math.floor(Math.random() * Math.floor(3))+1;</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="185"/>
+            <row id="188">
+                <cell id="189">
+                    <property name="paddingTop">10pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">5pt</property>
+                    <property name="paddingRight">0pt</property>
+                    <grid id="190">
+                        <column id="191">
+                            <property name="width">33.33%</property>
+                        </column>
+                        <column id="192">
+                            <property name="width">33.34%</property>
+                        </column>
+                        <column id="193">
+                            <property name="width">33.33%</property>
+                        </column>
+                        <row id="194">
+                            <cell id="195">
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingRight">5pt</property>
+                                <grid id="163">
+                                    <column id="164"/>
+                                    <row id="165">
+                                        <cell id="166">
+                                            <property name="backgroundColor">#1CBAB8</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <label id="162">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">12pt</property>
+                                                <property name="color">white</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Primary Category</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="167">
+                                        <cell id="168">
+                                            <property name="backgroundColor">#1CBAB8</property>
+                                            <property name="borderBottomStyle">none</property>
+                                            <property name="borderLeftStyle">none</property>
+                                            <property name="borderRightStyle">none</property>
+                                            <property name="borderTopStyle">none</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <property name="textAlign">center</property>
+                                            <data id="208">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">24pt</property>
+                                                <property name="color">white</property>
+                                                <property name="borderBottomColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <property name="dataSet">Categories</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">Knowledge Base</property>
+                                                        <text-property name="displayName">Knowledge Base</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["Knowledge Base"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">Category</property>
+                                                        <text-property name="displayName">Category</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["Category"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">TopCategory</property>
+                                                        <expression name="expression" type="javascript">dataSetRow["Category"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">TopCategory</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                            <cell id="196">
+                                <property name="paddingLeft">5pt</property>
+                                <property name="paddingRight">5pt</property>
+                                <grid id="198">
+                                    <list-property name="highlightRules">
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <property name="backgroundColor">#CA556B</property>
+                                            <property name="color">#FFFFFF</property>
+                                            <expression name="testExpr" type="javascript">row["Sentiment"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">"negative"</value>
+                                            </simple-property-list>
+                                        </structure>
+                                    </list-property>
+                                    <column id="199"/>
+                                    <row id="200">
+                                        <cell id="201">
+                                            <property name="backgroundColor">#EFAB61</property>
+                                            <property name="color">white</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <label id="202">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">12pt</property>
+                                                <property name="color">white</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Sentiment</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="203">
+                                        <expression name="bookmark" type="javascript">"sentimentDataRrow"</expression>
+                                        <cell id="204">
+                                            <property name="backgroundColor">#EFAB61</property>
+                                            <property name="paddingTop">1pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <list-property name="highlightRules">
+                                                <structure>
+                                                    <property name="operator">eq</property>
+                                                    <property name="backgroundColor">#CA556B</property>
+                                                    <property name="color">#FFFFFF</property>
+                                                    <expression name="testExpr" type="javascript">row["Sentiment"]</expression>
+                                                    <simple-property-list name="value1">
+                                                        <value type="javascript">"Negative"</value>
+                                                    </simple-property-list>
+                                                </structure>
+                                            </list-property>
+                                            <data id="206">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">24pt</property>
+                                                <property name="color">white</property>
+                                                <property name="borderBottomColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <structure name="stringFormat">
+                                                    <property name="category">Custom</property>
+                                                </structure>
+                                                <property name="textAlign">left</property>
+                                                <property name="dataSet">Sentiment</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">Tone</property>
+                                                        <expression name="expression" type="javascript">(dataSetRow["Tone"].substring(0,1)).toUpperCase() + dataSetRow["Tone"].substring(1);</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">Tone</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                            <cell id="197">
+                                <property name="paddingLeft">5pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <grid id="176">
+                                    <property name="dataSet">Categories</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Category</property>
+                                            <text-property name="displayName">Category</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Category"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="177"/>
+                                    <row id="178">
+                                        <cell id="179">
+                                            <property name="backgroundColor">#89C3D4</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="color">white</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <property name="textAlign">left</property>
+                                            <label id="182">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">12pt</property>
+                                                <property name="color">white</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Priority Level</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="180">
+                                        <cell id="181">
+                                            <property name="backgroundColor">#89C3D4</property>
+                                            <property name="paddingTop">1pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <data id="211">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">24pt</property>
+                                                <property name="color">white</property>
+                                                <property name="borderBottomColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <property name="resultSetColumn">Priority Level</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="186">
+                <cell id="187">
+                    <property name="paddingTop">15pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                    <grid id="237">
+                        <column id="238">
+                            <property name="width">50%</property>
+                        </column>
+                        <column id="239">
+                            <property name="width">50%</property>
+                        </column>
+                        <row id="240">
+                            <cell id="241">
+                                <property name="paddingRight">5pt</property>
+                                <grid id="243">
+                                    <column id="244"/>
+                                    <row id="245">
+                                        <cell id="246">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="259">
+                                                <column id="260"/>
+                                                <row id="261">
+                                                    <cell id="262">
+                                                        <property name="backgroundColor">white</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <table id="123">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Entities</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Cartridge ID</property>
+                                                                    <text-property name="displayName">Cartridge ID</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Cartridge ID"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="name">Entity</property>
+                                                                    <text-property name="displayName">Entity</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Entity"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <list-property name="filter">
+                                                                <structure>
+                                                                    <property name="operator">eq</property>
+                                                                    <expression name="expr" type="javascript">row["Cartridge ID"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">"PN"</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="operator">ne</property>
+                                                                    <expression name="expr" type="javascript">row["Entity"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">""</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="138"/>
+                                                            <column id="215">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="124">
+                                                                    <cell id="127">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <text id="216">
+                                                                            <property name="contentType">html</property>
+                                                                            <text-property name="content"><![CDATA[<script>
+	
+	var  birtRoot = document.getElementById('reportViewer___BIRT_ROOT');
+	birtRoot.parentNode.style.margin = "0px";
+	
+	$('#reportViewer_entityData').css('border-radius', '25px');
+	$('#reportViewer_entityData2').css('border-radius', '25px');
+	$('#reportViewer_entityData3').css('border-radius', '25px');
+	$('#reportViewer_complexConceptData').css('border-radius', '25px');
+	$('#reportViewer_simpleConceptData').css('border-radius', '25px');
+	$('#reportViewer_categoryData').css('border-radius', '25px');
+	
+	for(var i=1; i<=100; i++){
+		if(document.getElementById("reportViewer__recreated__bookmark__"+i) == null){
+			break;
+		}
+		$('#reportViewer__recreated__bookmark__' + i).css('border-radius', '25px');
+	}
+</script>]]></text-property>
+                                                                        </text>
+                                                                        <grid id="284">
+                                                                            <column id="285">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="286"/>
+                                                                            <row id="287">
+                                                                                <cell id="288">
+                                                                                    <image id="290">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">35.55px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/users.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="289">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="128">
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <property name="textAlign">left</property>
+                                                                                        <text-property name="text">People</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="129">
+                                                                    <cell id="132">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">7pt</property>
+                                                                        <property name="paddingLeft">7pt</property>
+                                                                        <property name="paddingBottom">7pt</property>
+                                                                        <property name="paddingRight">7pt</property>
+                                                                        <data id="133">
+                                                                            <property name="backgroundColor">#99ABCF</property>
+                                                                            <property name="color">white</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"entityData"</expression>
+                                                                            <property name="resultSetColumn">Entity</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="213">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="134">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="136"/>
+                                                                    <cell id="214"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                    <row id="247">
+                                        <cell id="248">
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="264">
+                                                <column id="265"/>
+                                                <row id="266">
+                                                    <cell id="267">
+                                                        <property name="backgroundColor">white</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <table id="139">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Entities</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Cartridge ID</property>
+                                                                    <text-property name="displayName">Cartridge ID</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Cartridge ID"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="name">Entity</property>
+                                                                    <text-property name="displayName">Entity</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Entity"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <list-property name="filter">
+                                                                <structure>
+                                                                    <property name="operator">eq</property>
+                                                                    <expression name="expr" type="javascript">row["Cartridge ID"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">"GL"</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="operator">ne</property>
+                                                                    <expression name="expr" type="javascript">row["Entity"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">""</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="148"/>
+                                                            <column id="224">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="140">
+                                                                    <cell id="141">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <grid id="291">
+                                                                            <column id="292">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="293"/>
+                                                                            <row id="294">
+                                                                                <cell id="295">
+                                                                                    <image id="297">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">32px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/map.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="296">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="142">
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <property name="textAlign">left</property>
+                                                                                        <text-property name="text">Places</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="143">
+                                                                    <cell id="144">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                        <data id="145">
+                                                                            <property name="backgroundColor">#63C9B7</property>
+                                                                            <property name="color">white</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"entityData2"</expression>
+                                                                            <property name="resultSetColumn">Entity</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="222">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="146">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="147"/>
+                                                                    <cell id="223"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                    <row id="249">
+                                        <cell id="250">
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="268">
+                                                <column id="269"/>
+                                                <row id="270">
+                                                    <cell id="271">
+                                                        <property name="backgroundColor">white</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <table id="149">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Entities</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Cartridge ID</property>
+                                                                    <text-property name="displayName">Cartridge ID</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Cartridge ID"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="name">Entity</property>
+                                                                    <text-property name="displayName">Entity</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Entity"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <list-property name="filter">
+                                                                <structure>
+                                                                    <property name="operator">eq</property>
+                                                                    <expression name="expr" type="javascript">row["Cartridge ID"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">"ON"</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="operator">ne</property>
+                                                                    <expression name="expr" type="javascript">row["Entity"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">""</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="158"/>
+                                                            <column id="232">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="150">
+                                                                    <cell id="151">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <grid id="298">
+                                                                            <column id="299">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="300"/>
+                                                                            <row id="301">
+                                                                                <cell id="302">
+                                                                                    <image id="304">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">24.89px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/building.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="303">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="152">
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <property name="textAlign">left</property>
+                                                                                        <text-property name="text">Organizations</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="153">
+                                                                    <cell id="154">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                        <data id="155">
+                                                                            <property name="backgroundColor">#A495D0</property>
+                                                                            <property name="color">#FFFFFF</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"entityData3"</expression>
+                                                                            <property name="resultSetColumn">Entity</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="230">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="156">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="157"/>
+                                                                    <cell id="231"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                    <row id="326">
+                                        <cell id="327">
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="280">
+                                                <column id="281"/>
+                                                <row id="282">
+                                                    <cell id="283">
+                                                        <property name="backgroundColor">white</property>
+                                                        <table id="74">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Categories</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Knowledge Base</property>
+                                                                    <text-property name="displayName">Knowledge Base</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Knowledge Base"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="name">Category</property>
+                                                                    <text-property name="displayName">Category</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Category"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <list-property name="filter">
+                                                                <structure>
+                                                                    <property name="operator">ne</property>
+                                                                    <expression name="expr" type="javascript">if(row["Category"] == "O CATEGORIES"){&#13;
+	row["Knowledge Base"]&#13;
+}</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">row["Knowledge Base"]</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="89"/>
+                                                            <column id="236">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="75">
+                                                                    <cell id="78">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <grid id="319">
+                                                                            <column id="320">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="321"/>
+                                                                            <row id="322">
+                                                                                <cell id="323">
+                                                                                    <image id="325">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">28.44px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/list.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="324">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="79">
+                                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <property name="textAlign">left</property>
+                                                                                        <text-property name="text">Categories</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="80">
+                                                                    <cell id="83">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                        <data id="84">
+                                                                            <property name="backgroundColor">#1CBAB8</property>
+                                                                            <property name="color">#FFFFFF</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"categoryData"</expression>
+                                                                            <property name="resultSetColumn">Category</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="234">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="85">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="87"/>
+                                                                    <cell id="235"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                            <cell id="242">
+                                <property name="paddingLeft">5pt</property>
+                                <grid id="251">
+                                    <column id="252"/>
+                                    <row id="253">
+                                        <cell id="254">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="272">
+                                                <column id="273"/>
+                                                <row id="274">
+                                                    <cell id="275">
+                                                        <property name="backgroundColor">white</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <table id="50">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Complex Concepts</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Complex Concept</property>
+                                                                    <text-property name="displayName">Complex Concept</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Complex Concept"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <list-property name="filter">
+                                                                <structure>
+                                                                    <property name="operator">ne</property>
+                                                                    <expression name="expr" type="javascript">row["Complex Concept"]</expression>
+                                                                    <simple-property-list name="value1">
+                                                                        <value type="javascript">"John Anderson"</value>
+                                                                    </simple-property-list>
+                                                                    <property name="updateAggregation">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="59"/>
+                                                            <column id="220">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="51">
+                                                                    <cell id="52">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <property name="textAlign">left</property>
+                                                                        <grid id="305">
+                                                                            <column id="306">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="307"/>
+                                                                            <row id="308">
+                                                                                <cell id="309">
+                                                                                    <image id="311">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">35.55px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/network-wired.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="310">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="53">
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <text-property name="text">Complex Concept</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="54">
+                                                                    <cell id="55">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">7pt</property>
+                                                                        <property name="paddingLeft">7pt</property>
+                                                                        <property name="paddingBottom">7pt</property>
+                                                                        <property name="paddingRight">7pt</property>
+                                                                        <data id="56">
+                                                                            <property name="backgroundColor">#7294D8</property>
+                                                                            <property name="color">white</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"complexConceptData"</expression>
+                                                                            <property name="resultSetColumn">Complex Concept</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="218">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="57">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="58"/>
+                                                                    <cell id="219"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                    <row id="255">
+                                        <cell id="256">
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="276">
+                                                <column id="277"/>
+                                                <row id="278">
+                                                    <cell id="279">
+                                                        <property name="backgroundColor">white</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <table id="60">
+                                                            <property name="borderBottomStyle">none</property>
+                                                            <property name="borderLeftStyle">none</property>
+                                                            <property name="borderRightStyle">none</property>
+                                                            <property name="borderTopStyle">none</property>
+                                                            <property name="width">100%</property>
+                                                            <property name="dataSet">Simple Concepts</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">Simple Concept</property>
+                                                                    <text-property name="displayName">Simple Concept</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Simple Concept"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                                <structure>
+                                                                    <property name="name">SimpleConcept</property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["Simple Concept"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                    <property name="allowExport">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <column id="69">
+                                                                <property name="width">50px</property>
+                                                            </column>
+                                                            <column id="228">
+                                                                <property name="width">50%</property>
+                                                            </column>
+                                                            <header>
+                                                                <row id="61">
+                                                                    <cell id="62">
+                                                                        <property name="colSpan">2</property>
+                                                                        <property name="rowSpan">1</property>
+                                                                        <property name="backgroundColor">#E1E8F6</property>
+                                                                        <property name="borderBottomStyle">none</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">10pt</property>
+                                                                        <property name="paddingLeft">10pt</property>
+                                                                        <property name="paddingBottom">10pt</property>
+                                                                        <property name="paddingRight">10pt</property>
+                                                                        <property name="textAlign">left</property>
+                                                                        <grid id="312">
+                                                                            <column id="313">
+                                                                                <property name="width">50px</property>
+                                                                            </column>
+                                                                            <column id="314"/>
+                                                                            <row id="315">
+                                                                                <cell id="316">
+                                                                                    <image id="318">
+                                                                                        <property name="height">28.44px</property>
+                                                                                        <property name="width">21.33px</property>
+                                                                                        <property name="source">file</property>
+                                                                                        <expression name="uri" type="constant">img/code-branch.png</expression>
+                                                                                    </image>
+                                                                                </cell>
+                                                                                <cell id="317">
+                                                                                    <property name="verticalAlign">middle</property>
+                                                                                    <label id="63">
+                                                                                        <property name="fontFamily">"Lato"</property>
+                                                                                        <property name="fontSize">14pt</property>
+                                                                                        <property name="fontWeight">normal</property>
+                                                                                        <property name="color">#34439B</property>
+                                                                                        <text-property name="text">Simple Concept</text-property>
+                                                                                    </label>
+                                                                                </cell>
+                                                                            </row>
+                                                                        </grid>
+                                                                    </cell>
+                                                                </row>
+                                                            </header>
+                                                            <detail>
+                                                                <row id="64">
+                                                                    <cell id="65">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                        <data id="66">
+                                                                            <property name="backgroundColor">#6DC382</property>
+                                                                            <property name="color">#FFFFFF</property>
+                                                                            <property name="paddingTop">5pt</property>
+                                                                            <property name="paddingLeft">5pt</property>
+                                                                            <property name="paddingBottom">5pt</property>
+                                                                            <property name="paddingRight">5pt</property>
+                                                                            <expression name="bookmark" type="javascript">"simpleConceptData"</expression>
+                                                                            <property name="resultSetColumn">SimpleConcept</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="226">
+                                                                        <property name="borderBottomColor">#EAEAEA</property>
+                                                                        <property name="borderBottomStyle">solid</property>
+                                                                        <property name="borderBottomWidth">thin</property>
+                                                                        <property name="borderLeftStyle">none</property>
+                                                                        <property name="borderRightStyle">none</property>
+                                                                        <property name="borderTopStyle">none</property>
+                                                                        <property name="paddingTop">5pt</property>
+                                                                        <property name="paddingLeft">5pt</property>
+                                                                        <property name="paddingBottom">5pt</property>
+                                                                        <property name="paddingRight">5pt</property>
+                                                                    </cell>
+                                                                </row>
+                                                            </detail>
+                                                            <footer>
+                                                                <row id="67">
+                                                                    <list-property name="visibility">
+                                                                        <structure>
+                                                                            <property name="format">all</property>
+                                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                                        </structure>
+                                                                    </list-property>
+                                                                    <cell id="68"/>
+                                                                    <cell id="227"/>
+                                                                </row>
+                                                            </footer>
+                                                        </table>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

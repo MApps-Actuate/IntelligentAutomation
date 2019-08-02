@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesClassificationDemo.OT Analytics</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+        <structure>
+            <property name="fileName">Report Libraries/ThemesClassificationDemo.rptlibrary</property>
+            <property name="namespace">ThemesClassificationDemo</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <data-mart-data-source name="Form Submission Data Source" id="4">
+            <property name="datamartURL">Data Objects/Form_Submissions</property>
+            <property name="accessType">latest</property>
+        </data-mart-data-source>
+    </data-sources>
+    <property name="linkedDataModels">
+        <data-mart-linked-data-model name="Data Model" id="5">
+            <property name="dataSource">Form Submission Data Source</property>
+            <property name="dataObject">Data Model</property>
+        </data-mart-linked-data-model>
+    </property>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="129">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<script>
+	$('#container_manualReviewCount a').css('text-decoration', 'none');
+	$('#container_manualReviewCount a').css('color', '#454545');
+	$('#gadgetChrome5reportletViewerDiv_manualReviewCount a').css('text-decoration', 'none');
+	$('#gadgetChrome5reportletViewerDiv_manualReviewCount a').css('color', '#454545');
+
+</script>]]></text-property>
+        </text>
+        <grid id="114">
+            <column id="115"/>
+            <row id="116">
+                <cell id="117">
+                    <grid id="52">
+                        <column id="53">
+                            <property name="width">25%</property>
+                        </column>
+                        <column id="54">
+                            <property name="width">25%</property>
+                        </column>
+                        <column id="55">
+                            <property name="width">25%</property>
+                        </column>
+                        <column id="56">
+                            <property name="width">25%</property>
+                        </column>
+                        <row id="57">
+                            <cell id="58">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <table name="p1Table" id="130">
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                    <column id="137"/>
+                                    <header>
+                                        <row id="131">
+                                            <cell id="132">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="50">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">16pt</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="borderBottomColor">#2E2E2E</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">1px</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Active Priority 1</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                        <row id="138">
+                                            <cell id="139">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="51">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">48pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="color">#FF2B2B</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">12</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                </table>
+                            </cell>
+                            <cell id="59">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <table name="AtRiskTable" id="140">
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                    <column id="147"/>
+                                    <header>
+                                        <row id="141">
+                                            <cell id="142">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="92">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">16pt</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="borderBottomColor">#2E2E2E</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">1px</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">At Risk</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                        <row id="144">
+                                            <cell id="145">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="95">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">48pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="color">#FF9B00</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">4</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                </table>
+                            </cell>
+                            <cell id="60">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <table name="AutoProcessTable" id="148">
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                    <column id="155"/>
+                                    <header>
+                                        <row id="149">
+                                            <cell id="150">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="100">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">16pt</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="borderBottomColor">#2E2E2E</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">1px</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Automatically Processed</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                        <row id="152">
+                                            <cell id="153">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="103">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">48pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">229</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                </table>
+                            </cell>
+                            <cell id="61">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <table name="ManualReviewTable" id="156">
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                    <column id="163"/>
+                                    <header>
+                                        <row id="157">
+                                            <cell id="158">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="108">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">16pt</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="borderBottomColor">#2E2E2E</property>
+                                                    <property name="borderBottomStyle">solid</property>
+                                                    <property name="borderBottomWidth">1px</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <text-property name="text">Manual Review Required</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                        <row id="160">
+                                            <cell id="161">
+                                                <property name="backgroundColor">#FFFFFF</property>
+                                                <property name="borderBottomStyle">none</property>
+                                                <property name="borderLeftStyle">none</property>
+                                                <property name="borderRightStyle">none</property>
+                                                <property name="borderTopStyle">none</property>
+                                                <label id="113">
+                                                    <property name="fontFamily">"Lato"</property>
+                                                    <property name="fontSize">48pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="color">#454545</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">5pt</property>
+                                                    <property name="paddingBottom">5pt</property>
+                                                    <property name="paddingRight">5pt</property>
+                                                    <property name="textAlign">center</property>
+                                                    <expression name="bookmark" type="javascript">"manualReviewCount"</expression>
+                                                    <text-property name="text">27</text-property>
+                                                    <list-property name="action">
+                                                        <structure>
+                                                            <property name="linkType">drill-through</property>
+                                                            <property name="reportName">Manual Review List.rptdesign</property>
+                                                            <property name="targetWindow">_blank</property>
+                                                            <property name="targetFileType">report-design</property>
+                                                        </structure>
+                                                    </list-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                </table>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="118">
+                <cell id="119">
+                    <grid id="122">
+                        <column id="123">
+                            <property name="width">50%</property>
+                        </column>
+                        <column id="124">
+                            <property name="width">50%</property>
+                        </column>
+                        <row id="125">
+                            <cell id="126">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <extended-item extensionName="Chart" name="PriorityLevelChart" id="42">
+                                    <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
+ <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side">
+  <block>
+   <children _type="TitleBlock" anchor="0">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <label>
+     <caption value="Priority Level Breakdown - YTD">
+      <font name="Lato" size="16.0"/>
+     </caption>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+   </children>
+   <children _type="Plot">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+   </children>
+   <children _type="Legend" anchor="4" visible="true" widthHint="450.0" orientation="0" position="0">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+    <separator>
+     <color _nil="1"/>
+    </separator>
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+   </children>
+   <bounds _body="0.0,0.0,0.0,225.0"/>
+   <outline>
+    <color _nil="1"/>
+   </outline>
+  </block>
+  <extendedProperties name="enable.area.alt" value="false"/>
+  <extendedProperties name="enable.drill.category" value="true"/>
+  <extendedProperties name="enable.drill.series" value="true"/>
+  <extendedProperties name="jschart.series.shadow" value="false"/>
+  <sampleData>
+   <baseSampleData dataSetRepresentation="6,4,12,8,10"/>
+   <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
+  </sampleData>
+  <emptyMessage>
+   <caption value="This chart contains no data."/>
+   <background _body=",64,127,127,127"/>
+   <outline>
+    <color _body=",128,127,127,127"/>
+   </outline>
+  </emptyMessage>
+  <axes type="0">
+   <title>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </title>
+   <associatedAxes primaryAxis="true">
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+    <seriesDefinitions>
+     <query definition="row[&quot;Inquiry Type&quot;]">
+      <grouping/>
+     </query>
+     <series _type="BarSeries" seriesIdentifier="Series 1" labelPosition="4" stacked="true" riser="0">
+      <label>
+       <background _nil="1"/>
+       <outline>
+        <color _nil="1"/>
+       </outline>
+      </label>
+      <dataDefinition definition="if(row[&quot;Priority Level&quot;] &gt; 1){&#13;&#10; row[&quot;Priority Level&quot;] / 2;&#13;&#10;}else{&#13;&#10; row[&quot;Priority Level&quot;];&#13;&#10;}">
+       <grouping enabled="true"/>
+      </dataDefinition>
+      <triggers condition="6">
+       <action type="1">
+        <value _type="TooltipValue" text="" delay="200"/>
+       </action>
+      </triggers>
+      <curveFitting _nil="1"/>
+     </series>
+     <grouping _nil="1"/>
+    </seriesDefinitions>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <label>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+    <majorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </majorGrid>
+    <minorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </minorGrid>
+    <origin>
+     <value _nil="1"/>
+    </origin>
+   </associatedAxes>
+   <seriesDefinitions>
+    <query definition=""/>
+    <series seriesIdentifier="">
+     <label>
+      <background _nil="1"/>
+      <outline>
+       <color _nil="1"/>
+      </outline>
+     </label>
+     <dataDefinition definition="var pl;&#13;&#10;switch (row[&quot;Priority Level&quot;]){&#13;&#10; case 1:&#13;&#10;  pl = &quot;Priority 1&quot;;&#13;&#10;  break;&#13;&#10; case 2:&#13;&#10;  pl = &quot;Priority 2&quot;;&#13;&#10;  break;&#13;&#10; case 3:&#13;&#10;  pl = &quot;Priority 3&quot;;&#13;&#10;  break;&#13;&#10; case 4:&#13;&#10;  pl = &quot;Priority 4&quot;;&#13;&#10;  break;&#13;&#10; case 5:&#13;&#10;  pl = &quot;Priority 5&quot;;&#13;&#10;  break;&#13;&#10;}&#13;&#10;pl;"/>
+     <curveFitting _nil="1"/>
+    </series>
+    <grouping enabled="true"/>
+   </seriesDefinitions>
+   <lineAttributes>
+    <color _nil="1"/>
+   </lineAttributes>
+   <label>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </label>
+   <majorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </majorGrid>
+   <minorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </minorGrid>
+   <origin>
+    <value _nil="1"/>
+   </origin>
+  </axes>
+  <rotation>
+   <angles/>
+  </rotation>
+ </ChartWithAxes>
+</ActuateChart>
+]]></xml-property>
+                                    <property name="outputFormat">JS</property>
+                                    <list-property name="filter">
+                                        <structure>
+                                            <property name="operator">gt</property>
+                                            <expression name="expr" type="javascript">data["Date Submitted"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">"2018-12-31 12:56:54.000-0600"</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">ne</property>
+                                            <expression name="expr" type="javascript">row["Priority Level"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">5</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">ne</property>
+                                            <expression name="expr" type="javascript">if(data["Priority Level"] == 1){&#13;
+	row["Inquiry Type"]&#13;
+}</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">"General Inquiries"</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">ne</property>
+                                            <expression name="expr" type="javascript">row["Inquiry Type"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">"General Inquiries,General Inquiries"</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">ne</property>
+                                            <expression name="expr" type="javascript">row["Inquiry Type"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">""</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">ne</property>
+                                            <expression name="expr" type="javascript">if(data["Priority Level"] == 1){&#13;
+	data["Inquiry Type"];&#13;
+}</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">"Training"</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="inheritColumns">true</property>
+                                    <property name="height">300px</property>
+                                    <property name="width">100%</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Priority Level</property>
+                                            <text-property name="displayName">Priority Level</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Priority Level"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Date Submitted</property>
+                                            <text-property name="displayName">Date Submitted</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Date Submitted"]</expression>
+                                            <property name="dataType">date-time</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Inquiry Type</property>
+                                            <text-property name="displayName">Inquiry Type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Inquiry Type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="theme">ThemesClassificationDemo.Chart-OT Analytics</property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                </extended-item>
+                            </cell>
+                            <cell id="127">
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <extended-item extensionName="Chart" name="CategoryChart" id="128">
+                                    <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
+ <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side" orientation="0">
+  <block>
+   <children _type="TitleBlock" anchor="0">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <label>
+     <caption value="Category Breakdown - YTD">
+      <font name="Lato" size="16.0"/>
+     </caption>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+   </children>
+   <children _type="Plot">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+   </children>
+   <children _type="Legend" widthHint="450.0" orientation="0" position="0">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+    <separator>
+     <color _nil="1"/>
+    </separator>
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+   </children>
+   <bounds _body="0.0,0.0,0.0,225.0"/>
+   <outline>
+    <color _nil="1"/>
+   </outline>
+  </block>
+  <extendedProperties name="enable.area.alt" value="false"/>
+  <extendedProperties name="enable.drill.category" value="true"/>
+  <extendedProperties name="enable.drill.series" value="true"/>
+  <extendedProperties name="jschart.series.shadow" value="false"/>
+  <sampleData>
+   <baseSampleData dataSetRepresentation="A, B, C"/>
+   <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
+  </sampleData>
+  <emptyMessage>
+   <caption value="This chart contains no data."/>
+   <background _body=",64,127,127,127"/>
+   <outline>
+    <color _body=",128,127,127,127"/>
+   </outline>
+  </emptyMessage>
+  <axes>
+   <title>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </title>
+   <associatedAxes primaryAxis="true">
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+    <seriesDefinitions>
+     <query definition="row[&quot;Inquiry Type&quot;]">
+      <grouping/>
+     </query>
+     <series _type="BarSeries" seriesIdentifier="Series 1" labelPosition="4" stacked="true" riser="0">
+      <label>
+       <background _nil="1"/>
+       <outline>
+        <color _nil="1"/>
+       </outline>
+      </label>
+      <dataDefinition definition="row[&quot;Inquiry Type&quot;]">
+       <grouping enabled="true" aggregateExpression="Count"/>
+      </dataDefinition>
+      <triggers condition="6">
+       <action type="1">
+        <value _type="TooltipValue" text="" delay="200"/>
+       </action>
+      </triggers>
+      <curveFitting _nil="1"/>
+     </series>
+     <grouping _nil="1"/>
+    </seriesDefinitions>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <label>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+    <majorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </majorGrid>
+    <minorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </minorGrid>
+    <origin>
+     <value _nil="1"/>
+    </origin>
+   </associatedAxes>
+   <seriesDefinitions>
+    <query definition=""/>
+    <series seriesIdentifier="">
+     <label>
+      <background _nil="1"/>
+      <outline>
+       <color _nil="1"/>
+      </outline>
+     </label>
+     <dataDefinition definition="&quot;&quot;"/>
+     <curveFitting _nil="1"/>
+    </series>
+    <grouping enabled="true"/>
+   </seriesDefinitions>
+   <lineAttributes>
+    <color _nil="1"/>
+   </lineAttributes>
+   <label>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </label>
+   <majorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </majorGrid>
+   <minorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </minorGrid>
+   <origin>
+    <value _nil="1"/>
+   </origin>
+  </axes>
+  <rotation>
+   <angles/>
+  </rotation>
+ </ChartWithAxes>
+</ActuateChart>
+]]></xml-property>
+                                    <property name="outputFormat">JS</property>
+                                    <list-property name="filter">
+                                        <structure>
+                                            <property name="operator">not-in</property>
+                                            <expression name="expr" type="javascript">row["Inquiry Type"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value type="javascript">""</value>
+                                                <value type="javascript">"General Inquiries,General Inquiries"</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="inheritColumns">false</property>
+                                    <property name="height">300px</property>
+                                    <property name="width">100%</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Inquiry Type</property>
+                                            <text-property name="displayName">Inquiry Type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Inquiry Type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="theme">ThemesClassificationDemo.Chart-OT Analytics</property>
+                                    <property name="linkedDataModel">Data Model</property>
+                                </extended-item>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="120">
+                <cell id="121">
+                    <property name="paddingTop">10pt</property>
+                    <property name="paddingLeft">10pt</property>
+                    <property name="paddingBottom">10pt</property>
+                    <property name="paddingRight">10pt</property>
+                    <extended-item extensionName="Chart" name="SubmissionTotalsChart" id="31">
+                        <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
+ <ChartWithAxes version="2.6.1" type="Line Chart" subType="Overlay">
+  <block>
+   <children _type="TitleBlock" anchor="0">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <label>
+     <caption value="Submission Totals">
+      <font name="Lato" size="16.0"/>
+     </caption>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+   </children>
+   <children _type="Plot">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+   </children>
+   <children _type="Legend" visible="false">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+    <separator>
+     <color _nil="1"/>
+    </separator>
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+   </children>
+   <bounds _body="0.0,0.0,0.0,225.0"/>
+   <outline>
+    <color _nil="1"/>
+   </outline>
+  </block>
+  <extendedProperties name="enable.area.alt" value="false"/>
+  <extendedProperties name="enable.drill.category" value="true"/>
+  <extendedProperties name="enable.drill.series" value="true"/>
+  <extendedProperties name="jschart.series.shadow" value="false"/>
+  <sampleData>
+   <baseSampleData dataSetRepresentation="01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000"/>
+   <orthogonalSampleData dataSetRepresentation="6,4,12,8,10" seriesDefinitionIndex="0"/>
+  </sampleData>
+  <emptyMessage>
+   <caption value="This chart contains no data."/>
+   <background _body=",64,127,127,127"/>
+   <outline>
+    <color _body=",128,127,127,127"/>
+   </outline>
+  </emptyMessage>
+  <axes type="3">
+   <title>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </title>
+   <associatedAxes primaryAxis="true" percent="false">
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+    <seriesDefinitions>
+     <query definition="">
+      <grouping/>
+     </query>
+     <series _type="LineSeries" seriesIdentifier="Series 1" stacked="false">
+      <label>
+       <background _nil="1"/>
+       <outline>
+        <color _nil="1"/>
+       </outline>
+      </label>
+      <dataDefinition definition="row[&quot;Inquiry Type&quot;]">
+       <grouping enabled="true" aggregateExpression="Count"/>
+      </dataDefinition>
+      <triggers condition="6">
+       <action type="1">
+        <value _type="TooltipValue" text="" delay="200"/>
+       </action>
+      </triggers>
+      <curveFitting _nil="1"/>
+      <markers>
+       <outline/>
+      </markers>
+      <lineAttributes>
+       <color _nil="1"/>
+      </lineAttributes>
+     </series>
+     <grouping _nil="1"/>
+    </seriesDefinitions>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <label>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+    <majorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </majorGrid>
+    <minorGrid>
+     <lineAttributes>
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes>
+      <color _nil="1"/>
+     </tickAttributes>
+    </minorGrid>
+    <origin>
+     <value _nil="1"/>
+    </origin>
+   </associatedAxes>
+   <seriesDefinitions>
+    <query definition=""/>
+    <series seriesIdentifier="">
+     <label>
+      <background _nil="1"/>
+      <outline>
+       <color _nil="1"/>
+      </outline>
+     </label>
+     <dataDefinition definition="row[&quot;Date Submitted&quot;]"/>
+     <curveFitting _nil="1"/>
+    </series>
+    <grouping enabled="true" groupingUnit="5" groupType="1"/>
+    <sortKey/>
+   </seriesDefinitions>
+   <lineAttributes>
+    <color _nil="1"/>
+   </lineAttributes>
+   <label>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </label>
+   <majorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </majorGrid>
+   <minorGrid>
+    <lineAttributes>
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes>
+     <color _nil="1"/>
+    </tickAttributes>
+   </minorGrid>
+   <origin>
+    <value _nil="1"/>
+   </origin>
+  </axes>
+  <rotation>
+   <angles/>
+  </rotation>
+ </ChartWithAxes>
+</ActuateChart>
+]]></xml-property>
+                        <property name="outputFormat">JS</property>
+                        <list-property name="filter">
+                            <structure>
+                                <property name="operator">gt</property>
+                                <expression name="expr" type="javascript">row["Date Submitted"]</expression>
+                                <simple-property-list name="value1">
+                                    <value type="javascript">"2014-12-31 23:59:59.000-0600"</value>
+                                </simple-property-list>
+                                <property name="updateAggregation">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="inheritColumns">true</property>
+                        <property name="height">300px</property>
+                        <property name="width">100%</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Date Submitted</property>
+                                <text-property name="displayName">Date Submitted</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Date Submitted"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Inquiry Type</property>
+                                <text-property name="displayName">Inquiry Type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Inquiry Type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="theme">ThemesClassificationDemo.Chart-OT Analytics</property>
+                        <property name="linkedDataModel">Data Model</property>
+                    </extended-item>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

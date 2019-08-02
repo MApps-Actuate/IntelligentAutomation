@@ -1,0 +1,514 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="css/contactFormDefault.css" rel="stylesheet" type="text/css" media="all" />
+		<script type="text/javascript" src="/iportal/jsapi"></script>
+	</head>
+	<body>
+		<div id="outerWrapper" class="wrapper">
+			<div id="banner" align="left" style="display:none">
+				<table id="bannerHeading" width="100%">
+					<tbody>
+						<tr style="vertical-align:middle;">
+							<td width="10%" align="left" style="white-space: nowrap;">
+								<img src="img/Home Banner.png" height="50px" style="padding-left:20px">
+							</td>
+							<td width="20%" align="left" style="white-space: nowrap;">
+								<span style="display: inline-flex; align-items: center; white-space: nowrap;">Contact Form</span>
+							</td>
+							<td width="30%" align="center">
+								<img src="img/OT Magellan.png" height="50px">
+							</td>
+							<td width="40%" align="right">
+								<img src="img/userhead.png" height="50px" style="padding-right:20px">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="contactHeader" class="contactHeader">
+				<h1>Contact OpenText</h1>
+			</div>
+			<div id="innerWrapper" class="outputContainer">
+				<div class="tab" id="outputTabs" style="display:none">
+					<button class="leftButton tablink" onclick="tabClick(event, 'contactFormRow')">Contact Form</button>
+					<button class="leftButton tablink" onclick="tabClick(event, 'basicResultRow')" id="standardAnalysisButton">Standard Analysis</button>
+					<button class="leftButton tablink" onclick="tabClick(event, 'magellanResultRow')">Magellan Analysis</button>
+					<button class="leftButton tablink" onclick="window.open('workflow_dashboard.html')">Workflow Dashboard</button>
+				</div>
+				<div class="pageRow" id="contactFormRow">
+					<div class="formContainer">
+						<div class="contactRow">
+							<div class="contactColumn1">
+								<label for="firstName">First Name</label>
+								<input type="text" id="firstName" name="firstName" placeholder="Your name..">
+							</div>
+							<div class="contactColumn2">
+								<label for="lastName">Last Name</label>
+								<input type="text" id="lastName" name="lastName" placeholder="Your last name..">
+							</div>
+						</div>
+						
+						<div class="contactRow">
+							<label for="email">Email Address</label>
+							<input type="text" id="email" name="email" placeHolder="Your email address..">
+						</div>
+						
+						<div class="contactRow">
+							<div class="contactColumn1">
+								<label for="phone">Phone</label>
+								<input type="text" id="phone" name="phone" placeholder="Your Phone Number..">
+							</div>
+							<div class="contactColumn2">
+								<label for="company">Company</label>
+								<input type="text" id="company" name="company" placeholder="Your Company..">
+							</div>
+						</div>
+						
+						<div class="contactRow">
+							<div class="contactColumn1">
+								<label for="country">Country</label>
+								<select id="country" name="country" onclick="updateStateSelect()">
+									<option value="USA">USA</option>
+									<option value="Canada">Canada</option>				  
+								</select>
+							</div>
+							<div class="contactColumn2">
+								<label for="state">State or Province</label>
+								<select id="state" name="state">			  
+								</select>
+							</div>
+						</div>
+						
+						<div class="contactRow">
+							<label for="subject">How can we help?</label>
+							<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+						</div>
+						
+						<div class="submitRow">
+							<input type="submit" value="Submit" onclick="formSubmit()">
+						</div>
+					</div>
+				</div>
+				<div class="pageRow" id="basicResultRow" style="display:none">
+					<div class="formContainer" id="basicResultsContainer"></div>
+				</div>
+				<div class="pageRow" id="customerResultRow" style="display:none">
+					<div id="cusotmerReportViewer"></div>
+				</div>
+				<div class="pageRow" id="magellanResultRow" style="display:none">
+					<div id="reportViewer"></div>
+				</div>
+				<div class="pageRow" id="xmlResultRow" style="display:none">
+					<textarea id="xmlTextArea" readonly></textarea>
+				</div>
+			</div>
+		</div>
+	
+		<script type="text/javascript">
+
+			//=============================================================================================================
+			//                               Code run by default when page is loaded
+			//=============================================================================================================
+			
+			//load JSAPI viewer and initialize the actuate object as early as possible
+			var ihubURL = "/iportal";
+			var xmlResponse = '<?xml version="1.0" encoding="UTF-8"?><root><sentiment subjectivity="opinion" tone="negative"/><complexConcepts><concept>measles outbreak</concept><concept>news conference</concept><concept>health officials</concept><concept>public health</concept><concept>unvaccinated children</concept><concept>public health emergency</concept><concept>unvaccinated people</concept><concept>affected areas</concept><concept>mandatory vaccination order</concept><concept>vaccination records</concept></complexConcepts><simpleConcepts><concept>measles</concept><concept>vaccination</concept><concept>health</concept><concept>officials</concept><concept>outbreak</concept><concept>child</concept><concept>cases</concept><concept>conference</concept><concept>parents</concept><concept>vaccine</concept></simpleConcepts><terms><cartridge id="PN"><category/><category/><category>Israel</category><category>Barbot</category><category>Blasio</category><category>Bill de Blasio</category><category>Shannon Stapleton</category><category>Herminia Palacio</category><category>Rockland County</category></cartridge><cartridge id="GL"><category>United States of America</category><category>Israel</category><category>Brooklyn, Delaware County, New York</category><category>Brooklyn, New York</category><category>New York</category><category>New York, New York</category><category>Rockland County, New York</category><category>Shannon, Quebec</category></cartridge><cartridge id="ON"><category>Health Department</category><category>Reuters AG</category><category>U.S. Centers for Disease Control and Prevention</category></cartridge></terms><categories><kb kbid="IPTC"><category>14006001 - parent and child</category><category>07008000 - preventative medicine</category><category>11008000 - local authority</category><category>11006007 - government departments</category></kb><kb kbid="LCTGM"><category>008196 - Press conferences</category><category>003131 - Diseases</category><category>002364 - Communicable diseases</category><category>004933 - Health</category><category>009592 - Sick persons</category></kb></categories></root>';
+			var jsonResponse;
+			actuate.load('viewer');
+			loadJsapi(ihubURL);			
+			
+			//Arrays of states and provices for populating dropdown lists
+			var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
+			var provinces = ["Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan", "Northwest Territories", "Nunavut", "Yukon"];
+			
+			//wait until page is loaded to populate drop down of state/provice list
+			window.addEventListener('load', function(){
+				populateStateSelect();				
+			});
+			
+			
+			
+			//=============================================================================================================
+			//           Functions to handle changing list of states/provinces based on country selected
+			//=============================================================================================================
+			
+			//Wrapper function to clear and repopulate the state/province drop down
+			function updateStateSelect(){
+				var stateContainer = clearContainer("state");
+				populateStateSelect();
+			}
+			
+			//Populates the state/provice drop down based on the country selected
+			//Only support USA and Canada right now
+			function populateStateSelect(){
+				var country = document.getElementById("country").value;
+				var stateArray;
+				
+				if(country === "USA"){
+					stateArray = states;
+				}else if(country === "Canada"){
+					stateArray = provinces;
+				}else{
+					stateArray = [""];
+				}
+				
+				for(var x=0; x<stateArray.length; x++){
+					var newOption = document.createElement("OPTION");
+					newOption.value = stateArray[x];
+					newOption.innerHTML = stateArray[x];
+					document.getElementById("state").appendChild(newOption);
+				}
+			}
+			
+			
+			
+			//=============================================================================================================
+			//           Functions to handle operations related to button navigation
+			//=============================================================================================================
+			
+			//remove active class from all buttons
+			function unselectButtons(){
+				var tabButtons = document.getElementsByClassName("tablink");
+				for(var x=0; x < tabButtons.length; x++){
+					tabButtons[x].className = tabButtons[x].className.replace(" active", "");
+				}
+			}
+			
+			//handle clicks between tabs
+			//change which button shows as active
+			function tabClick(evt, row){	
+				unselectButtons();				
+				//add active class to clicked button
+				evt.currentTarget.className += " active";
+			
+				//change which div row is displayed based on button click
+				var tabRows = document.getElementsByClassName("pageRow");
+				for(var i=0; i < tabRows.length; i++){
+					tabRows[i].style.display = "none";
+				}
+				document.getElementById(row).style.display = "block";
+			}
+			
+			//=============================================================================================================
+			//           Primary functions for handling form submit actions
+			//=============================================================================================================
+			
+			//handles operations when Submit button is clicked in Contact Form
+			function formSubmit(){
+				//initiate call to OTCA via OTS server by calling generateFormData() function
+				jsonResponse = generateFormData();
+				//jsonResponse = generateFormDataBasic();
+				//loadCustomerResponse();
+				
+				var contactFormRow = document.getElementById("contactFormRow");
+				var customerResponse = document.getElementById("customerResultRow");
+				var contactHeader = document.getElementById("contactHeader");
+				
+				contactHeader.style.display = "none";
+				contactFormRow.style.display = "none";
+				customerResponse.style.display = "block";
+			}		
+			
+			//populates div with iHub JSAPI viewer
+			//called by onreadystatechange callback class in generateFormData() after submitting XMLHttpRequest
+			function loadCustomerResponse(){	
+				//create parameter object to send to iHub viewer with report
+				var reportParams = {XMLSource : xmlResponse};
+				//create the iHub viewer
+				createViewer("cusotmerReportViewer", "Applications/Contact Form/Report Designs/Submission Response.rptdesign", reportParams);
+				//create the second viewer for the Magelann results in the backgroud
+				createViewer("reportViewer", "Applications/Contact Form/Report Designs/EntitiesReport.rptdesign", reportParams);
+			}
+			
+			function showFullResults(){
+				var banner = document.getElementById("banner");
+				banner.style.display = "block";
+				
+				//load the raw XML results from the OTS servers call to Magellan
+				var xmlTextArea = document.getElementById("xmlTextArea");
+				xmlTextArea.value = xmlResponse;
+				
+				//clear any existing content of results in basicResultsContainer
+				var basicResultsContainer = clearContainer("basicResultsContainer");				
+				//generates table with the basic results read from contact form			
+				basicResultsContainer.append(createBasicResults(jsonResponse));
+				
+				//unselect any currently selected navigation button
+				//set Standard Analysis button as active
+				unselectButtons();
+				var basicResultButton = document.getElementById("standardAnalysisButton");
+				basicResultButton.className += " active";
+				
+				//hide contact form row and show the standard analysis row
+				var customerResponse = document.getElementById("customerResultRow");
+				var basicResults = document.getElementById("basicResultRow");
+				customerResponse.style.display = "none";
+				basicResults.style.display = "block";
+				
+				//unhide tabs for navigation to results of analysis
+				var tabRow = document.getElementById("outputTabs");
+				tabRow.style.display = "block";
+			}
+			
+			//creats tables to display results of basic JSON object collection from form
+			function createBasicResults(formJson){
+				var tableWrapper = createDiv("tableWrapper", null);
+				var nameTable = document.createElement("table");
+				nameTable.className = "basicTable";
+				
+				var nameRow = nameTable.insertRow(0);
+				var nameHeaderCell = nameRow.insertCell(0);
+				var nameDetailCell = nameRow.insertCell(1);
+				
+				nameHeaderCell.innerHTML = "Name";
+				nameDetailCell.innerHTML = formJson.firstName + " " + formJson.lastName;
+				
+				var emilRow = nameTable.insertRow(1);
+				var emailHeaderCell = emilRow.insertCell(0);
+				var emailDetailCell = emilRow.insertCell(1);
+				
+				emailHeaderCell.innerHTML = "Email";
+				emailDetailCell.innerHTML = formJson.email;
+				
+				var phoneRow = nameTable.insertRow(2);
+				var phoneHeaderCell = phoneRow.insertCell(0);
+				var phoneDetailCell = phoneRow.insertCell(1);
+				
+				phoneHeaderCell.innerHTML = "Phone";
+				phoneDetailCell.innerHTML = formJson.phone;
+				
+				var companyRow = nameTable.insertRow(3);
+				var companyHeaderCell = companyRow.insertCell(0);
+				var companyDetailCell = companyRow.insertCell(1);
+				
+				companyHeaderCell.innerHTML = "Company";
+				companyDetailCell.innerHTML = formJson.company;
+				
+				var countryRow = nameTable.insertRow(4);
+				var countryHeaderCell = countryRow.insertCell(0);
+				var countryDetailCell = countryRow.insertCell(1);
+				
+				countryHeaderCell.innerHTML = "Country";
+				countryDetailCell.innerHTML = formJson.country;
+				
+				var stateRow = nameTable.insertRow(5);
+				var stateHeaderCell = stateRow.insertCell(0);
+				var stateDetailCell = stateRow.insertCell(1);
+				
+				stateHeaderCell.innerHTML = "State";
+				stateDetailCell.innerHTML = formJson.state;
+				
+				var subjectRow = nameTable.insertRow(6);
+				var subjectHeaderCell = subjectRow.insertCell(0);
+				var subjectDetailCell = subjectRow.insertCell(1);
+				
+				subjectHeaderCell.innerHTML = "Subject";
+				subjectDetailCell.innerHTML = formJson.subject;
+				
+				
+				tableWrapper.append(nameTable);
+				
+				return tableWrapper;
+			}
+			
+			
+			
+			//=============================================================================================================
+			//                 Functions to generate results from data entereted in contact form
+			//=============================================================================================================
+						
+			//create basic JSON object of form data to show Non-Magellan results
+			function generateFormDataBasic(){
+				var text = '{"email":"' + document.getElementById("email").value + '",'+
+							'"firstName":"' + document.getElementById("firstName").value + '",'+
+							'"lastName":"' +  document.getElementById("lastName").value + '",'+
+							'"phone":"' + document.getElementById("phone").value + '",'+
+							'"company":"' + document.getElementById("company").value + '",'+
+							'"country":"' + document.getElementById("country").value + '",'+
+							'"state":"' + document.getElementById("state").value + '",'+
+							'"subject":"' + escape(document.getElementById("subject").value) + '"}';
+				var obj = JSON.parse(text);
+				return obj
+			}
+			
+			//Final form data generation to read data from form and send to OTS to forward to Magellan
+			//Response is decoded from Base63 and sent to loadResults function to dynaimcally rebuild page to display results.
+			function generateFormData(){
+				var basicJson = generateFormDataBasic();
+				var text = '{"jobVariables": {'+   
+							'"keys": ["email","firstName","lastName","phone","company","country","state","subject"],'+  //
+							'"values": [{"value": "'+document.getElementById("email").value+'"},'+
+										'{"value": "'+document.getElementById("firstName").value+'"},'+
+										'{"value": "'+document.getElementById("lastName").value+'"},'+
+										'{"value": "'+document.getElementById("phone").value+'"},'+
+										'{"value": "'+document.getElementById("company").value+'"},'+
+										'{"value": "'+document.getElementById("country").value+'"},'+
+										'{"value": "'+document.getElementById("state").value+'"},'+
+										//'{"value": "'+escape(document.getElementById("subject").value)+'"}'+
+										'{"value": "'+ document.getElementById("state").value + " " + document.getElementById("country").value + " " + 
+															 document.getElementById("firstName").value  + " " + document.getElementById("lastName").value + " " + 
+															 document.getElementById("company").value + " " + escape(document.getElementById("subject").value)+'"}'+
+										']'+
+						  '},'+
+						  '"inputXdocs": {'+
+							'"xdocKeys": [],'+
+							'"multiXDocKeys": [],'+
+							'"xdocData": [],'+
+							'"multiXDocData": [{'+
+								'"multiXDocKeys": [],'+
+								'"multiXDocData": []'+
+							  '}'+
+							']'+
+						  '},'+
+						  '"outputXdocs": {'+
+							'"xdocKeys": [],'+
+							'"multiXDocKeys": [],'+
+							'"multiXDocData": [{'+
+								'"multiXDocKeys": [],'+
+								'"multiXDocData": []'+
+							   '}'+
+							']'+
+						  '},'+
+						  '"filteredResult": true,'+ //change this if you want to see everything that is being returned which includes all variables and files
+						  '"runJobNow": true,'+
+						  '"includedJobVars": [],'+ //put jobvars you want back here
+						  '"includedInputDocs": [],'+
+						  '"includedResultDocs": ["otcaXML"],'+ //put result xdocs you want back hee
+						  '"ignoreServerError": false,'+
+						  '"componentName": "processFlows/handleContactUsRequest.xProcessFlow"'+
+						'}'
+					
+				
+				//console.log(text);
+				var xhr = new XMLHttpRequest();
+				//var url = 'http://opentextdemo.ca:8090/rest/api/v1/jobRunner/job'
+				//var url = 'http://10.18.50.93:8080/rest/api/v1/job/runner/job'
+				var url = 'http://td-magellan.eastus.cloudapp.azure.com/transform/api/v1/jobRunner/job';
+				xhr.open("POST", url, true);
+				xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+				xhr.setRequestHeader('Accept', 'application/json; charset=UTF-8');
+				xhr.setRequestHeader('token','jobrunner')
+				// send the collected data as JSON
+
+				xhr.onreadystatechange = function(basicJson) {
+					if(xhr.readyState == 4 && xhr.status == 200) {
+						var response = xhr.responseText;
+						
+						//console.log(response);
+						var obj = JSON.parse(response);
+							
+						//console.log(obj);
+						//console.log(decodeBase64(obj.result.resultMap.xdocData[0].data))
+						xmlResponse = decodeBase64(obj.result.resultMap.xdocData[0].data);
+						loadCustomerResponse();
+					}
+				}
+				xhr.send(text);
+				return basicJson;
+			}
+			
+			
+			
+			//=============================================================================================================
+			//                       Functions to initialize JSAPI and create viewer
+			//=============================================================================================================
+						
+			function loadJsapi(ihub){
+				var reqOps = new actuate.RequestOptions();
+				actuate.initialize(ihub, reqOps==undefined?null:reqOps, 'administrator', null, function(){
+					//console.log(this.isInitialized());
+				});
+			}
+			
+			function createViewer(div, rptName, parameters){
+				var uioptions = new actuate.viewer.UIOptions();
+					uioptions.enableToolBar(false);
+					
+				var scrollpanel = new actuate.viewer.ScrollPanel();
+					scrollpanel.setMouseScrollingEnabled(false);
+					scrollpanel.setPanInOutEnabled(false);
+					
+				var uiconfig = new actuate.viewer.UIConfig();
+					uiconfig.setContentPanel(scrollpanel);
+					
+				var viewer = new actuate.Viewer(div, uiconfig);
+					viewer.setReportName(rptName);
+					viewer.setWidth(960);
+					viewer.setHeight(getPageHeight()*.79);
+					viewer.setUIOptions(uioptions);
+					viewer.setParameters(parameters);
+					viewer.ScrollPanel
+					viewer.submit(function(){
+						viewer.enableIV();
+					});
+			}
+			
+			
+			
+			//|=============================================================================================================|
+			//|                        Utility functions for handling various tasks											|
+			//|-------------------------------------------------------------------------------------------------------------|
+			//|   * base64 decoder																						    |
+			//|   * RegEx to handle escape characters for text entereted into form										    |
+			//|   * Get page height natively with JavaScript																|
+			//|   * Clear all child content of a given DOM Node																|
+			//|   * Dynamically create div node 																			|
+			//|=============================================================================================================|
+			
+			//Base64 decoder used for decoding results of response from OTS
+			decodeBase64 = function(s) {
+				var e={},i,b=0,c,x,l=0,a,r='',w=String.fromCharCode,L=s.length;
+				var A="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+				for(i=0;i<64;i++){e[A.charAt(i)]=i;}
+				for(x=0;x<L;x++){
+					c=e[s.charAt(x)];b=(b<<6)+c;l+=6;
+					while(l>=8){((a=(b>>>(l-=8))&0xff)||(x<(L-2)))&&(r+=w(a));}
+				}
+				return r;
+			};
+			
+			//RegEx escape to use before sending raw text to OTS to forward to OTCA
+			escape = function (str) {
+				return str
+					.replace(/[\\]/g, '\\\\')
+					.replace(/[\"]/g, '\\\"')
+					.replace(/[\/]/g, '\\/')
+					.replace(/[\b]/g, '\\b')
+					.replace(/[\f]/g, '\\f')
+					.replace(/[\n]/g, '\\n')
+					.replace(/[\r]/g, '\\r')
+					.replace(/[\t]/g, '\\t');
+			};
+			
+			//returns the max page height of all height calls for best compatiblity across browsers
+			//used by JSAPI viewer which requires a height in pixels(px) not percent(%)
+			function getPageHeight(){
+				return Math.max(document.body.scrollHeight,document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+			}
+			
+			//Clears all child nodes of a given node
+			function clearContainer(container){
+				var container = document.getElementById(container);
+				while(container.hasChildNodes()){
+					container.removeChild(container.firstChild);
+				}
+				return container;
+			}
+			
+			//functions to dynamically create div
+			function createDiv(divClass, divId){
+				var newDiv = document.createElement("div");
+				if(divClass){
+					newDiv.className = divClass;
+				}
+				if(divId){
+					newDiv.id = divId;
+				}
+				return newDiv;
+			}			
+		</script>
+	</body>
+</html>

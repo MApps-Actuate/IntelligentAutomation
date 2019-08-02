@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="pCategory" id="61">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="pPriorityLevel" id="62">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="pText" id="63">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <property name="backgroundColor">#F0F2F5</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="24">
+            <column id="25"/>
+            <row id="26">
+                <cell id="27">
+                    <property name="paddingTop">10pt</property>
+                    <property name="paddingLeft">10pt</property>
+                    <property name="paddingBottom">10pt</property>
+                    <property name="paddingRight">10pt</property>
+                    <property name="textAlign">center</property>
+                    <text id="64">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<script>
+	var  birtRoot = document.getElementById('container___BIRT_ROOT');
+	birtRoot.parentNode.style.margin = "0px";
+</script>]]></text-property>
+                    </text>
+                    <grid id="13">
+                        <property name="width">1200px</property>
+                        <column id="14"/>
+                        <row id="15">
+                            <cell id="16">
+                                <property name="backgroundColor">#FFFFFF</property>
+                                <property name="borderBottomColor">#F0F2F5</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">10px</property>
+                                <property name="paddingTop">15pt</property>
+                                <property name="paddingLeft">15pt</property>
+                                <property name="paddingBottom">15pt</property>
+                                <property name="paddingRight">15pt</property>
+                                <property name="textAlign">center</property>
+                                <grid id="4">
+                                    <column id="5">
+                                        <property name="width">33.33%</property>
+                                    </column>
+                                    <column id="6">
+                                        <property name="width">33.34%</property>
+                                    </column>
+                                    <column id="7">
+                                        <property name="width">33.33%</property>
+                                    </column>
+                                    <row id="19">
+                                        <cell id="20">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <label id="23">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="color">#A0ACBA</property>
+                                                <property name="borderBottomColor">#A0ACBA</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">1px</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Category</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="21">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <label id="28">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="color">#A0ACBA</property>
+                                                <property name="borderBottomColor">#A0ACBA</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">1px</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Priority Level</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="22">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">1pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <label id="29">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="color">#A0ACBA</property>
+                                                <property name="borderBottomColor">#A0ACBA</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">1px</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Sentiment</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="8">
+                                        <cell id="9">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <text id="12">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="color">#454545</property>
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[<select id="categorySelect"; style="width: 100%; padding: 12px; border: 1px solid #ccc; box-sizing: border-box">
+	<option value="Customer Support">Customer Support</optin>
+	<option selected="selected" value="General Inquiry">General Inquiry</option>
+	<option value="Learning Services>Learning Services</option>
+	<option value="Partners">Partners</option>
+	<option value="Professional Services">Professional Services</option>
+	<option value="Sales">Sales</option>
+	<option value="Training">Training</option>
+</select>
+
+<script>
+	var cSelect = document.getElementById("categorySelect");
+	var pValue = '<VALUE-OF>params["pCategory"].value</VALUE-OF>';
+	var options = cSelect.options;
+	for(var option, i = 0; option = options[i]; i++){
+		if(option.value == pValue){
+			cSelect.selectedIndex = i;
+			break;
+		}
+	}
+</script>]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="10">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <text id="30">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[<select id="prioritySelect" style="width: 100%; padding: 12px; border: 1px solid #ccc; box-sizing: border-box">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option selected="selected" value="3">3</option
+	<option value="4">4</option>
+</select>
+
+<script>
+	var cSelect = document.getElementById("prioritySelect");
+	var pValue = '<VALUE-OF>params["pPriorityLevel"].value</VALUE-OF>';
+	var options = cSelect.options;
+	for(var option, i = 0; option = options[i]; i++){
+		if(option.value == pValue){
+			cSelect.selectedIndex = i;
+			break;
+		}
+	}
+</script>]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="11">
+                                            <property name="paddingTop">10pt</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <property name="paddingBottom">10pt</property>
+                                            <property name="paddingRight">10pt</property>
+                                            <text id="31">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[<select style="width: 100%; padding: 12px; border: 1px solid #ccc; box-sizing: border-box">
+	<option value="negative">Negative</option>
+	<option value="neutral">Neutral</option>
+	<option selected="selected" value="positive">Positive</option>
+</select>]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="17">
+                            <cell id="18">
+                                <property name="backgroundColor">#FFFFFF</property>
+                                <property name="borderTopColor">#F0F2F5</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">10px</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">30pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <grid id="33">
+                                    <column id="34"/>
+                                    <row id="35">
+                                        <cell id="36">
+                                            <label id="39">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="color">#A0ACBA</property>
+                                                <property name="borderBottomColor">#A0ACBA</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">1px</property>
+                                                <property name="paddingBottom">10pt</property>
+                                                <property name="textAlign">left</property>
+                                                <text-property name="text">Submission Text</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="37">
+                                        <cell id="38">
+                                            <property name="paddingTop">10pt</property>
+                                            <text id="32">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">12pt</property>
+                                                <property name="color">#454545</property>
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[<VALUE-OF>params["pText"].value</VALUE-OF>]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="40">
+                            <cell id="41">
+                                <property name="borderBottomColor">#A0ACBA</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">1px</property>
+                                <property name="paddingTop">25pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">1pt</property>
+                                <property name="textAlign">right</property>
+                                <grid id="43">
+                                    <column id="58">
+                                        <property name="width">80%</property>
+                                    </column>
+                                    <column id="44">
+                                        <property name="width">15%</property>
+                                    </column>
+                                    <row id="46">
+                                        <cell id="57">
+                                            <property name="paddingRight">10pt</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <label id="56">
+                                                <property name="fontFamily">"Lato"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="color">#A0ACBA</property>
+                                                <property name="textAlign">right</property>
+                                                <text-property name="text">Add to Training Set ?</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="47">
+                                            <property name="textAlign">right</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <text id="49">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[<select style="width: 100%; padding: 12px; border: 1px solid #ccc; box-sizing: border-box">
+	<option value="yes">Yes</option>
+	<option value="no">No</option>
+</select>]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="59">
+                            <cell id="60">
+                                <property name="paddingTop">20pt</property>
+                                <property name="paddingLeft">10pt</property>
+                                <property name="paddingBottom">10pt</property>
+                                <property name="paddingRight">10pt</property>
+                                <property name="textAlign">right</property>
+                                <text id="42">
+                                    <property name="contentType">html</property>
+                                    <text-property name="content"><![CDATA[<input onclick="submitClick()" type="submit" value="Submit Update" style="background-color: #5a77a0; color: white; padding: 12px 120px; border: none; border-radius: 25px; cursor: pointer; font-size: 1.2em">
+</input>
+<script>
+	function submitClick(){
+		alert("Document Update Submitted");
+	}
+</script>]]></text-property>
+                                </text>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

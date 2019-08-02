@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <method name="onContentUpdate"><![CDATA[if(window["__first_load"] === undefined){window["__first_load"] = true; this.getViewer().enableIV();}]]></method>
+    <data-sources>
+        <oda-data-source extensionID="com.actuate.data.oda.static" name="Data Source" id="4"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="com.actuate.data.oda.static.dataSet" name="Data Set" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Submit Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Submit Date</text-property>
+                    <text-property name="heading">Submit Date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Priority</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Priority</text-property>
+                    <text-property name="heading">Priority</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Category</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Category</text-property>
+                    <text-property name="heading">Category</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Subject</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Subject</text-property>
+                    <text-property name="heading">Subject</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Submit Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Priority</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Category</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Subject</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Submit Date</property>
+                    <property name="nativeName">Submit Date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">6</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Priority</property>
+                    <property name="nativeName">Priority</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Category</property>
+                    <property name="nativeName">Category</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Subject</property>
+                    <property name="nativeName">Subject</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">1</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[{"Columns":["Submit Date","Priority","Category","Subject"],"Types":[6,3,1,1]}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Submit Date</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>6</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Submit Date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Submit Date</design:label>
+            <design:formattingHints>
+              <design:displaySize>-1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Priority</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Priority</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Priority</design:label>
+            <design:formattingHints>
+              <design:displaySize>-1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Category</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Category</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Category</design:label>
+            <design:formattingHints>
+              <design:displaySize>-1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Subject</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>Subject</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Subject</design:label>
+            <design:formattingHints>
+              <design:displaySize>-1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>DATA</name>
+                    <value>[["2019-05-21","3","General Inquiry","Our agency is in the beginning phase of exploring ECM software to better assist us with managing our records.  I would like to receive product information and schedule a demo of your product to evaluate feasibility."],["2019-05-21","1","General Inquiry","How does one access the related forums and product updates for Encase products?  Before the merger, I received emails indicating a version release.  Now, not only don't I get an email, I can't find where to go to find downloads period!"],["2019-05-21","3","General Inquiry","We are interested in discussing options for the Document Management system implementation."],["2019-05-21","4","Customer Support","Hello, I am looking for a sales rep. with OpenText that supports the Booz Allen Federal account. I will appreciate it if you connect me with this person or better still, have someone reach out to me via email/phone to discuss. Thank you."],["2019-05-21","3","General Inquiry","We are looking for updates or upgrades to opentext exceed, essentially those concerning security vulnerabilities. Where can we find this so that we can download to stay updated?"],["2019-05-21","3","General Inquiry","Would appreciate someone calling me in regards to Opentext software we had purchased."],["2019-05-21","4","General Inquiry","Will be releasing an RFP for an Enterprise Document Management system. OpenText has been identified as a potential partner for this type of solution. Looking to work with a member of the business development team on this sourcing initiative."],["2019-05-21","2","Sales","Hello, Our users are getting an error message that our Captiva OpenText licenses have expired yet we just submitted the renewal in August 2018 and should be fine until August 2019. Please advise.  Many thanks!"],["2019-05-21","3","General Inquiry","I'd like to learn about your OpenText Capture Recognition Engine (RecoStar) licensing and capabilities.  Accuracy rates, template management, and licensing/pricing models."],["2019-05-21","3","General Inquiry","We are looking into leveraging OpenText DAM to solve some business needs here at Cisco Meraki. It's my understanding that other teams within Cisco are already using OpenText, so I'm curious if we could spin up another instance for Cisco Meraki and what that might look like. Thanks!"],["2019-05-21","3","General Inquiry","I have questions about your OpenText solutions as we are currently evaluating some options for a DAM solution."],["2019-05-21","4","Customer Support","We already are using the RightFax cloud based  service now, but are wanted to find out the cost of the OpenText Fax2Mail, because RightFax maybe going away, when our Ricoh contract is up. Can you tell me what pricing options you offer? Thank you"],["2019-05-21","2","General Inquiry","We are looking to see if there have been any security updates or upgrades for opentext exceed. I have looked over the site but have not been able to locate any. We are running v14. Can you direct me to where we can access them if there are any?"],["2019-05-21","3","General Inquiry","We are looking into moving to a cloud based faxing service and I would like to arrange a meeting with a local partner to go over options for your offerings. Can this be arranged?"],["2019-05-21","3","General Inquiry","We would like to explore OpenText Documentum for our submission documents in Pharmacology and Toxicology."],["2019-05-21","4","General Inquiry","I am evaluating OpenText products for our ECM. I need details about your Cloud offerings."],["2019-05-21","2","General Inquiry","Hi, I'm writing to inquire if OpenText offers legal document management system services. Thank you."],["2019-05-21","3","General Inquiry","I would like a contact to discuss implementation of an OpenText content server, document access, invoicing, and database on Azure Cloud."],["2019-05-21","3","Sales","We make extensive use of eRoom Enterprise and our users are around the world. We are contemplating the upgrade to ver. 16.4. But before we go with that decision, we were wondering if, in OpenText's view, that we should instead migrate to one of your other products. The one thing we can't do without is eRoom's approval process database process. And we need the new application to be extremely simple as we have no professional IT support to help develop anything (the only IT support we have is to install/upgrade hardware, operating systems, and eRoom versions)."],["2019-05-21","4","General Inquiry","I am interested in setting up a POC for inbound faxing delivered by both e-mail and interface, with the goal of possible large-scale deployment across multiple organizations feeding into different instances of the same EMR.  We are partnered with Flatiron and OpenText is one of their supported/preferred fax integrations"],["2019-05-21","3","General Inquiry","We would like to move off our RightFax 10.5 to a newer version and was wondering if we could get pricing on the licensing as well as pricing if there was a service that OpenText could provide to help us with the install process. Ideally we would like to rebuild the system instead of doing an in place upgrade."],["2019-05-21","3","General Inquiry","We recently migrated all of our on-premises servers to the cloud and the only server left in our office is our Rightfax server, so we would like to migrate our service to the Rightfax Hybrid cloud solution. I believe this solution would allow us to host our gateway Rightfax server in our cloud as well, and it would forward all telephony requests to the OpenText cloud, and i think this would be a great solution for us, i hope."],["2019-05-21","3","Customer Support","Interested in Opentext for Custom Critical EDI and other customer automation"],["2019-05-21","4","General Inquiry","Request for quote for the following OpenText items: RightFax, Hummingbird Exceed, Media Gateway, DoubleTake Support Renewal"],["2019-05-21","2","General Inquiry","I work for a non-profit organization that focuses on providing development opportunities and a resources for Manufacturing organizations across Canada. Many of our organizations are looking to learn more about how AI and internet of things can help benefit them as a manufacturer. We are looking for someone who could assist in educating us on how Opentext works with manufacturers in these fields. Not sure if this is something that Oepntext usually would do but I thought I would ask just in case."],["2019-05-21","4","Sales","I would like to learn about Opentext and if it offers Document Control capabilities, for MAC users."],["2019-05-21","3","Sales","I am evaluating OpenText capability to integrate with Sharepoint Online and OneDrive.  We are an OpenText client currently using Content Server and Enterprise Connect but would like to bring our SharePoint content into our OpenText ECM."]]</value>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+    </data-sets>
+    <themes>
+        <report-item-theme type="Table" name="Clean Blue Table" id="954">
+            <styles>
+                <style name="table" id="955">
+                    <property name="fontFamily">"Lato"</property>
+                    <property name="fontSize">10pt</property>
+                </style>
+                <style name="table-detail-cell" id="958">
+                    <property name="backgroundColor">#FFFFFF</property>
+                    <property name="fontFamily">"Lato"</property>
+                    <property name="fontSize">10pt</property>
+                    <property name="color">#454545</property>
+                    <property name="borderTopStyle">none</property>
+                    <property name="borderTopWidth">medium</property>
+                    <property name="textAlign">left</property>
+                    <property name="verticalAlign">bottom</property>
+                </style>
+                <style name="table-footer-cell" id="961">
+                    <property name="backgroundColor">#A7D0E2</property>
+                    <property name="fontFamily">"Tahoma"</property>
+                    <property name="fontSize">10pt</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="color">#353535</property>
+                </style>
+                <style name="table-header-cell" id="962">
+                    <property name="backgroundColor">#A7D0E2</property>
+                    <property name="fontFamily">"Lato"</property>
+                    <property name="fontSize">10pt</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="color">#454545</property>
+                </style>
+                <style name="table-group-header-cell" id="973">
+                    <property name="fontFamily">"Lato"</property>
+                    <property name="color">#454545</property>
+                    <property name="borderBottomColor">#C8D5DB</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#C8D5DB</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#C8D5DB</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#C8D5DB</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <property name="verticalAlign">middle</property>
+                </style>
+            </styles>
+        </report-item-theme>
+    </themes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <property name="backgroundColor">#F0F2F5</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="129">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<script>
+	
+	var  birtRoot = document.getElementById('container___BIRT_ROOT');
+	birtRoot.parentNode.style.margin = "0px";
+	
+	$('#container_manualReviewSubject a').css('text-decoration', 'none');
+	$('#container_manualReviewSubject a').css('color', '#666666');
+	$('#container_categoryBox a').css('text-decoration', 'none');
+	$('#container_categoryBox a').css('color', '#666666');
+	$('#container_categoryBox').css('border-radius', '25px');
+	
+	
+	for(var i=1; i<=100; i++){
+		$('#container__recreated__bookmark__' + i + ' a').css('text-decoration', 'none');
+		$('#container__recreated__bookmark__' + i + ' a').css('color', '#666666');
+		$('#container__recreated__bookmark__' + i).css('border-radius', '25px');
+	}
+	
+</script>]]></text-property>
+        </text>
+        <grid id="34">
+            <column id="35"/>
+            <row id="38">
+                <cell id="39">
+                    <property name="paddingTop">25pt</property>
+                    <property name="paddingLeft">10pt</property>
+                    <property name="paddingBottom">10pt</property>
+                    <property name="paddingRight">10pt</property>
+                    <property name="textAlign">center</property>
+                    <table id="6">
+                        <property name="backgroundColor">white</property>
+                        <property name="borderBottomColor">#C8D5DB</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#C8D5DB</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#C8D5DB</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#C8D5DB</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <property name="width">1200px</property>
+                        <property name="dataSet">Data Set</property>
+                        <property name="theme">Clean Blue Table</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Submit Date</property>
+                                <text-property name="displayName">Submit Date</text-property>
+                                <expression name="expression" type="javascript">BirtDateTime.today()</expression>
+                                <property name="dataType">date</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Priority</property>
+                                <text-property name="displayName">Priority</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Priority"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Category</property>
+                                <text-property name="displayName">Category</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Category"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Subject</property>
+                                <text-property name="displayName">Subject</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Subject"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="30">
+                            <property name="width">20%</property>
+                        </column>
+                        <column id="31">
+                            <property name="width">10%</property>
+                        </column>
+                        <column id="32">
+                            <property name="width">20%</property>
+                        </column>
+                        <column id="33">
+                            <property name="width">50%</property>
+                        </column>
+                        <header>
+                            <row id="7">
+                                <cell id="8">
+                                    <property name="backgroundColor">#EEF2F4</property>
+                                    <property name="fontFamily">"Lato"</property>
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftColor">#C8D5DB</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">1px</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopColor">#C8D5DB</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">1px</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="9">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="color">#666666</property>
+                                        <text-property name="text">Submit Date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="10">
+                                    <property name="backgroundColor">#EEF2F4</property>
+                                    <property name="fontFamily">"Lato"</property>
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopColor">#C8D5DB</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">1px</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="11">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="color">#666666</property>
+                                        <text-property name="text">Priority</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="12">
+                                    <property name="backgroundColor">#EEF2F4</property>
+                                    <property name="fontFamily">"Lato"</property>
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopColor">#C8D5DB</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">1px</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="13">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="color">#666666</property>
+                                        <text-property name="text">Category</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="14">
+                                    <property name="backgroundColor">#EEF2F4</property>
+                                    <property name="fontFamily">"Lato"</property>
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightColor">#C8D5DB</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <property name="borderTopColor">#C8D5DB</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">1px</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="15">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="color">#666666</property>
+                                        <text-property name="text">Subject</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="16">
+                                <cell id="17">
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="18">
+                                        <property name="fontFamily">"Lato"</property>
+                                        <property name="color">#828282</property>
+                                        <property name="resultSetColumn">Submit Date</property>
+                                    </data>
+                                </cell>
+                                <cell id="19">
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="20">
+                                        <property name="fontFamily">"Lato"</property>
+                                        <property name="color">#828282</property>
+                                        <property name="resultSetColumn">Priority</property>
+                                    </data>
+                                </cell>
+                                <cell id="21">
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="22">
+                                        <property name="backgroundColor">#EEF2F4</property>
+                                        <property name="fontFamily">"Lato"</property>
+                                        <property name="color">#828282</property>
+                                        <property name="paddingTop">7pt</property>
+                                        <property name="paddingLeft">1pt</property>
+                                        <property name="paddingBottom">7pt</property>
+                                        <property name="paddingRight">1pt</property>
+                                        <expression name="bookmark" type="javascript">"categoryBox"</expression>
+                                        <property name="resultSetColumn">Category</property>
+                                        <list-property name="action">
+                                            <structure>
+                                                <property name="linkType">drill-through</property>
+                                                <property name="reportName">Manual Review Detail.rptdesign</property>
+                                                <property name="targetWindow">_blank</property>
+                                                <property name="targetFileType">report-design</property>
+                                                <list-property name="paramBindings">
+                                                    <structure>
+                                                        <property name="paramName">pCategory</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Category"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="paramName">pPriorityLevel</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Priority"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="paramName">pText</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Subject"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                </list-property>
+                                            </structure>
+                                        </list-property>
+                                    </data>
+                                </cell>
+                                <cell id="23">
+                                    <property name="borderBottomColor">#C8D5DB</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                    <property name="paddingTop">10pt</property>
+                                    <property name="paddingLeft">10pt</property>
+                                    <property name="paddingBottom">10pt</property>
+                                    <property name="paddingRight">10pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="24">
+                                        <property name="fontFamily">"Lato"</property>
+                                        <property name="color">#828282</property>
+                                        <expression name="bookmark" type="javascript">"manualReviewSubject"</expression>
+                                        <property name="resultSetColumn">Subject</property>
+                                        <list-property name="action">
+                                            <structure>
+                                                <property name="linkType">drill-through</property>
+                                                <property name="reportName">Manual Review Detail.rptdesign</property>
+                                                <property name="targetWindow">_blank</property>
+                                                <property name="targetFileType">report-design</property>
+                                                <list-property name="paramBindings">
+                                                    <structure>
+                                                        <property name="paramName">pCategory</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Category"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="paramName">pPriorityLevel</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Priority"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="paramName">pText</property>
+                                                        <simple-property-list name="expression">
+                                                            <value type="javascript">row["Subject"]</value>
+                                                        </simple-property-list>
+                                                    </structure>
+                                                </list-property>
+                                            </structure>
+                                        </list-property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="25">
+                                <cell id="26"/>
+                                <cell id="27"/>
+                                <cell id="28"/>
+                                <cell id="29"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

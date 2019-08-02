@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="XMLSource" id="6">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">'&lt;?xml version="1.0" encoding="UTF-8"?>&lt;root>&lt;sentiment subjectivity="opinion" tone="negative"/>&lt;complexConcepts>&lt;concept>measles outbreak&lt;/concept>&lt;concept>news conference&lt;/concept>&lt;concept>health officials&lt;/concept>&lt;concept>public health&lt;/concept>&lt;concept>unvaccinated children&lt;/concept>&lt;concept>public health emergency&lt;/concept>&lt;concept>unvaccinated people&lt;/concept>&lt;concept>affected areas&lt;/concept>&lt;concept>mandatory vaccination order&lt;/concept>&lt;concept>vaccination records&lt;/concept>&lt;/complexConcepts>&lt;simpleConcepts>&lt;concept>measles&lt;/concept>&lt;concept>vaccination&lt;/concept>&lt;concept>health&lt;/concept>&lt;concept>officials&lt;/concept>&lt;concept>outbreak&lt;/concept>&lt;concept>child&lt;/concept>&lt;concept>cases&lt;/concept>&lt;concept>conference&lt;/concept>&lt;concept>parents&lt;/concept>&lt;concept>vaccine&lt;/concept>&lt;/simpleConcepts>&lt;terms>&lt;cartridge id="PN">&lt;category/>&lt;category/>&lt;category>Israel&lt;/category>&lt;category>Barbot&lt;/category>&lt;category>Blasio&lt;/category>&lt;category>Bill de Blasio&lt;/category>&lt;category>Shannon Stapleton&lt;/category>&lt;category>Herminia Palacio&lt;/category>&lt;category>Rockland County&lt;/category>&lt;/cartridge>&lt;cartridge id="GL">&lt;category>United States of America&lt;/category>&lt;category>Israel&lt;/category>&lt;category>Brooklyn, Delaware County, New York&lt;/category>&lt;category>Brooklyn, New York&lt;/category>&lt;category>New York&lt;/category>&lt;category>New York, New York&lt;/category>&lt;category>Rockland County, New York&lt;/category>&lt;category>Shannon, Quebec&lt;/category>&lt;/cartridge>&lt;cartridge id="ON">&lt;category>Health Department&lt;/category>&lt;category>Reuters AG&lt;/category>&lt;category>U.S. Centers for Disease Control and Prevention&lt;/category>&lt;/cartridge>&lt;/terms>&lt;categories>&lt;kb kbid="IPTC">&lt;category>14006001 - parent and child&lt;/category>&lt;category>07008000 - preventative medicine&lt;/category>&lt;category>11008000 - local authority&lt;/category>&lt;category>11006007 - government departments&lt;/category>&lt;/kb>&lt;kb kbid="LCTGM">&lt;category>008196 - Press conferences&lt;/category>&lt;category>003131 - Diseases&lt;/category>&lt;category>002364 - Communicable diseases&lt;/category>&lt;category>004933 - Health&lt;/category>&lt;category>009592 - Sick persons&lt;/category>&lt;/kb>&lt;/categories>&lt;/root>'</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="XML Paramater" id="4"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="Entities" id="5">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Cartridge ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Entity</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Cartridge Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Cartridge ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName" key=""></text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Entity</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName" key=""></text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Cartridge Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName" key=""></text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Cartridge ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Entity</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Cartridge Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XML Paramater</property>
+            <method name="open"><![CDATA[importPackage(javax.xml.parsers);
+importPackage(javax.xml.xpath);
+importPackage(org.xml.sax);
+importPackage(java.io);
+importPackage(org.w3c.dom);
+importPackage(org.xml.sax);
+
+var factory = DocumentBuilderFactory.newInstance();
+factory.setNamespaceAware(true);
+
+var builder = factory.newDocumentBuilder();
+var inputSource = InputSource(StringReader(params["XMLSource"].value));
+
+var doc = builder.parse(inputSource);
+doc.getDocumentElement().normalize();
+
+// create an XPathFactory
+var xFactory = XPathFactory.newInstance();
+
+// create an XPath object
+var xpath = xFactory.newXPath();
+
+// compile the XPath expression
+var expr2 = xpath.compile("/root/terms/cartridge/category");
+// run the query and get a nodeset
+nodes = expr2.evaluate(doc, XPathConstants.NODESET);
+
+//initialize object variables to be used in the fetch method
+x = 0;]]></method>
+            <method name="fetch"><![CDATA[if (x < nodes.getLength())
+{
+	row["Entity"] = nodes.item(x).getTextContent();
+	row["Cartridge ID"] = nodes.item(x).getParentNode().getAttributes().getNamedItem("id").getNodeValue();
+	if(row["Cartridge ID"] == "ON"){
+		row["Cartridge Name"] = "Orginizations";
+	}else if(row["Cartridge ID"] == "PN"){
+		row["Cartridge Name"] = "People";
+	}else if(row["Cartridge ID"] == "GL"){
+		row["Cartridge Name"] = "Places";
+	}else{
+		row["Cartridge Name"] = "Other Entity";
+	}
+	x++;
+	return (true);
+}
+    
+return (false);]]></method>
+        </script-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">auto</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+</report>
