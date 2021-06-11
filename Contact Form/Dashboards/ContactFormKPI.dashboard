@@ -8711,7 +8711,7 @@
      </outline>
     </title>
    </children>
-   <bounds _body="0.0,0.0,1212.0,207.75"/>
+   <bounds _body="0.0,0.0,1212.0,200.25"/>
    <outline>
     <color _nil="1"/>
    </outline>
@@ -8866,7 +8866,7 @@
                 </structure>
             </list-property>
             <property name="inheritColumns">true</property>
-            <property name="height">207.75pt</property>
+            <property name="height">200.25pt</property>
             <property name="width">1212pt</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -9645,7 +9645,7 @@
                                     <property name="showBorder">true</property>
                                     <property name="zIndex">11</property>
                                     <property name="showScrollBar">false</property>
-                                    <property name="height">222px</property>
+                                    <property name="height">182px</property>
                                     <property name="caption">
                                         <gadget-caption id="1093">
                                             <property name="showCaption">true</property>
@@ -9850,7 +9850,7 @@
                                     <property name="showBorder">true</property>
                                     <property name="zIndex">9</property>
                                     <property name="showScrollBar">false</property>
-                                    <property name="height">152px</property>
+                                    <property name="height">111px</property>
                                     <property name="width">189px</property>
                                     <property name="caption">
                                         <gadget-caption id="1099">
@@ -10301,15 +10301,15 @@
                                     <property name="type">string</property>
                                 </structure>
                             </list-property>
-                            <property name="userPreferences">{}</property>
-                            <property name="x">220px</property>
-                            <property name="y">593px</property>
+                            <property name="userPreferences">{"gadget-caption":{}}</property>
+                            <property name="x">219px</property>
+                            <property name="y">596px</property>
                             <property name="title">SubmissionTotalsChart - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">20</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">312px</property>
+                            <property name="height">225in</property>
                             <property name="width">1633px</property>
                             <property name="caption">
                                 <gadget-caption id="1167">
