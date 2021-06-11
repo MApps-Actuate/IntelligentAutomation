@@ -4,8 +4,8 @@
     <property name="layoutPreference">auto layout</property>
     <list-property name="libraries">
         <structure>
-            <property name="fileName">ThemesReportItems3.rptlibrary</property>
-            <property name="namespace">ThemesReportItems3</property>
+            <property name="fileName">themes/OpenTextThemeReportItem.rptlibrary</property>
+            <property name="namespace">OpenTextThemeReportItem</property>
         </structure>
     </list-property>
     <data-sources>
@@ -8711,7 +8711,7 @@
      </outline>
     </title>
    </children>
-   <bounds _body="0.0,0.0,1212.0,225.75"/>
+   <bounds _body="0.0,0.0,1212.0,207.75"/>
    <outline>
     <color _nil="1"/>
    </outline>
@@ -8720,6 +8720,7 @@
   <extendedProperties name="enable.drill.category" value="true"/>
   <extendedProperties name="enable.drill.series" value="true"/>
   <extendedProperties name="jschart.series.shadow" value="false"/>
+  <extendedProperties name="jschart.client.script" value="beforeGeneration:function(o){if(o&amp;&amp;o.chart&amp;&amp;o.chart.renderTo){var r=document.getElementById(o.chart.renderTo);if(r.parentNode&amp;&amp;r.parentNode.id){var b=r.parentNode.id;var v=actuate.getViewer(b);if(v){v.enableGlobalFilter(o);}}}}"/>
   <sampleData>
    <baseSampleData dataSetRepresentation="01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000"/>
    <orthogonalSampleData dataSetRepresentation="6,4,12,8,10" seriesDefinitionIndex="0"/>
@@ -8865,7 +8866,7 @@
                 </structure>
             </list-property>
             <property name="inheritColumns">true</property>
-            <property name="height">225.75pt</property>
+            <property name="height">207.75pt</property>
             <property name="width">1212pt</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -8889,6 +8890,13 @@
             </list-property>
             <property name="theme">Chart-OT Analytics9</property>
             <property name="linkedDataModel">Data Model</property>
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">createdBy</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+            <property name="createdBy">dashboard</property>
         </extended-item>
         <extended-item extensionName="Chart" name="CategoryChart" id="1048">
             <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
@@ -8937,7 +8945,7 @@
      </outline>
     </title>
    </children>
-   <bounds _body="0.0,0.0,591.0,198.0"/>
+   <bounds _body="0.0,0.0,591.0,192.75"/>
    <outline>
     <color _nil="1"/>
    </outline>
@@ -8946,7 +8954,7 @@
   <extendedProperties name="enable.drill.category" value="true"/>
   <extendedProperties name="enable.drill.series" value="true"/>
   <extendedProperties name="jschart.series.shadow" value="false"/>
-  <extendedProperties name="jschart.client.script" value="beforeRendering: function(options, chart)&#13;&#10;{&#13;&#10;    options.plotOptions = {&#13;&#10;        series: {&#13;&#10;            pointWidth: 250&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;beforeGeneration: function(options)&#13;&#10;{&#13;&#10;    options.tooltip = {&#13;&#10;        followPointer: true,&#13;&#10;        style: {&#13;&#10;            fontSize: &quot;12px&quot;,&#13;&#10;            fontWeight: 400,&#13;&#10;            padding: &quot;12px&quot;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;&#13;&#10;beforeDrawDataPoint: function(point, pointOptions, chart, seriesIndex, pointIndex)&#13;&#10;{&#13;&#10;    pointOptions.dataLabels = {&#13;&#10;        borderWidth: 0,&#13;&#10;        inside: true,&#13;&#10;        align: &#039;left&#039;,&#13;&#10;        verticalAlign: &#039;top&#039;,&#13;&#10;        crop: true,&#13;&#10;        overflow: &#039;justify&#039;,&#13;&#10;        padding: 15,&#13;&#10;        style: {&#13;&#10;            width: &#039;110px&#039;,&#13;&#10;            textOutline: &#039;none&#039;&#13;&#10;        },&#13;&#10;        formatter: function(){&#13;&#10;            console.log(this.point.customTooltip);&#13;&#10;            var newLabel = this.point.customTooltip;&#13;&#10;            &#13;&#10;            return newLabel;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},"/>
+  <extendedProperties name="jschart.client.script" value="beforeRendering: function(options, chart)&#13;&#10;{&#13;&#10;    options.plotOptions = {&#13;&#10;        series: {&#13;&#10;            pointWidth: 250&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;beforeGeneration: function(options)&#13;&#10;{&#13;&#10;this.initGlobalFilters(options);&#13;&#10; &#13;&#10;    options.tooltip = {&#13;&#10;        followPointer: true,&#13;&#10;        style: {&#13;&#10;            fontSize: &quot;12px&quot;,&#13;&#10;            fontWeight: 400,&#13;&#10;            padding: &quot;12px&quot;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;&#13;&#10;beforeDrawDataPoint: function(point, pointOptions, chart, seriesIndex, pointIndex)&#13;&#10;{&#13;&#10;    pointOptions.dataLabels = {&#13;&#10;        borderWidth: 0,&#13;&#10;        inside: true,&#13;&#10;        align: &#039;left&#039;,&#13;&#10;        verticalAlign: &#039;top&#039;,&#13;&#10;        crop: true,&#13;&#10;        overflow: &#039;justify&#039;,&#13;&#10;        padding: 15,&#13;&#10;        style: {&#13;&#10;            width: &#039;110px&#039;,&#13;&#10;            textOutline: &#039;none&#039;&#13;&#10;        },&#13;&#10;        formatter: function(){&#13;&#10;            console.log(this.point.customTooltip);&#13;&#10;            var newLabel = this.point.customTooltip;&#13;&#10;            &#13;&#10;            return newLabel;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;initGlobalFilters:function(o){if(o&amp;&amp;o.chart&amp;&amp;o.chart.renderTo){var r=document.getElementById(o.chart.renderTo);if(r.parentNode&amp;&amp;r.parentNode.id){var b=r.parentNode.id;var v=actuate.getViewer(b);if(v){v.enableGlobalFilter(o);}}}}&#13;&#10;,"/>
   <sampleData>
    <baseSampleData dataSetRepresentation="A, B, C"/>
    <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
@@ -9096,7 +9104,7 @@
                 </structure>
             </list-property>
             <property name="inheritColumns">false</property>
-            <property name="height">198pt</property>
+            <property name="height">192.75pt</property>
             <property name="width">591pt</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -9120,6 +9128,13 @@
             </list-property>
             <property name="theme">Chart-OT Analytics11</property>
             <property name="linkedDataModel">Data Model</property>
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">createdBy</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+            <property name="createdBy">dashboard</property>
         </extended-item>
         <extended-item extensionName="Chart" name="PriorityLevelChart" id="1052">
             <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
@@ -9168,7 +9183,7 @@
      </outline>
     </title>
    </children>
-   <bounds _body="0.0,0.0,591.0,192.0"/>
+   <bounds _body="0.0,0.0,591.0,194.25"/>
    <outline>
     <color _nil="1"/>
    </outline>
@@ -9177,7 +9192,7 @@
   <extendedProperties name="enable.drill.category" value="true"/>
   <extendedProperties name="enable.drill.series" value="true"/>
   <extendedProperties name="jschart.series.shadow" value="false"/>
-  <extendedProperties name="jschart.client.script" value="beforeRendering: function(options, chart)&#13;&#10;{&#13;&#10;    options.plotOptions = {&#13;&#10;        series: {&#13;&#10;            pointWidth: 125&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;beforeGeneration: function(options)&#13;&#10;{&#13;&#10;    options.tooltip = {&#13;&#10;        followPointer: true,&#13;&#10;        style: {&#13;&#10;            fontSize: &quot;12px&quot;,&#13;&#10;            fontWeight: 400,&#13;&#10;            padding: &quot;12px&quot;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;&#13;&#10;beforeDrawDataPoint: function(point, pointOptions, chart, seriesIndex, pointIndex)&#13;&#10;{&#13;&#10;    pointOptions.dataLabels = {&#13;&#10;        borderWidth: 0,&#13;&#10;        inside: true,&#13;&#10;        align: &#039;left&#039;,&#13;&#10;        verticalAlign: &#039;top&#039;,&#13;&#10;        crop: true,&#13;&#10;        overflow: &#039;justify&#039;,&#13;&#10;        padding: 15,&#13;&#10;        style: {&#13;&#10;            width: &#039;110px&#039;,&#13;&#10;            textOutline: &#039;none&#039;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},"/>
+  <extendedProperties name="jschart.client.script" value="beforeRendering: function(options, chart)&#13;&#10;{&#13;&#10;    options.plotOptions = {&#13;&#10;        series: {&#13;&#10;            pointWidth: 125&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;beforeGeneration: function(options)&#13;&#10;{&#13;&#10;this.initGlobalFilters(options);&#13;&#10; &#13;&#10;    options.tooltip = {&#13;&#10;        followPointer: true,&#13;&#10;        style: {&#13;&#10;            fontSize: &quot;12px&quot;,&#13;&#10;            fontWeight: 400,&#13;&#10;            padding: &quot;12px&quot;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;&#13;&#10;&#13;&#10;beforeDrawDataPoint: function(point, pointOptions, chart, seriesIndex, pointIndex)&#13;&#10;{&#13;&#10;    pointOptions.dataLabels = {&#13;&#10;        borderWidth: 0,&#13;&#10;        inside: true,&#13;&#10;        align: &#039;left&#039;,&#13;&#10;        verticalAlign: &#039;top&#039;,&#13;&#10;        crop: true,&#13;&#10;        overflow: &#039;justify&#039;,&#13;&#10;        padding: 15,&#13;&#10;        style: {&#13;&#10;            width: &#039;110px&#039;,&#13;&#10;            textOutline: &#039;none&#039;&#13;&#10;        }&#13;&#10;    }&#13;&#10;},&#13;&#10;initGlobalFilters:function(o){if(o&amp;&amp;o.chart&amp;&amp;o.chart.renderTo){var r=document.getElementById(o.chart.renderTo);if(r.parentNode&amp;&amp;r.parentNode.id){var b=r.parentNode.id;var v=actuate.getViewer(b);if(v){v.enableGlobalFilter(o);}}}}&#13;&#10;,"/>
   <sampleData>
    <baseSampleData dataSetRepresentation="6,4,12,8,10"/>
    <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
@@ -9352,7 +9367,7 @@
                 </structure>
             </list-property>
             <property name="inheritColumns">true</property>
-            <property name="height">192pt</property>
+            <property name="height">194.25pt</property>
             <property name="width">591pt</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -9376,6 +9391,13 @@
             </list-property>
             <property name="theme">Chart-OT Analytics12</property>
             <property name="linkedDataModel">Data Model</property>
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">createdBy</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+            <property name="createdBy">dashboard</property>
         </extended-item>
         <table name="ManualReviewTable" id="1033">
             <property name="fontFamily">"Lato"</property>
@@ -9480,6 +9502,23 @@
     </body>
     <property name="dashboardView">
         <dashboard id="2">
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">dashboardTheme</property>
+                    <property name="type">string</property>
+                </structure>
+                <structure>
+                    <property name="name">enableGlobalFilter</property>
+                    <property name="type">boolean</property>
+                </structure>
+                <structure>
+                    <property name="name">dashboardLayout</property>
+                    <property name="type">string</property>
+                </structure>
+            </list-property>
+            <property name="dashboardTheme">OpenTextThemeReportItem.OpenText:Dark</property>
+            <property name="enableGlobalFilter">false</property>
+            <property name="dashboardLayout">freeForm</property>
             <property name="activeTab">458779b1-49c6-4a4f-a365-f7452c0106c5</property>
             <property name="tabs">
                 <tab-element name="458779b1-49c6-4a4f-a365-f7452c0106c5" id="46">
@@ -9488,30 +9527,42 @@
                             <property name="name">responsiveView</property>
                             <property name="type">boolean</property>
                         </structure>
+                        <structure>
+                            <property name="name">tabTheme</property>
+                            <property name="type">string</property>
+                        </structure>
                     </list-property>
-                    <property name="responsiveView">true</property>
+                    <property name="responsiveView">false</property>
+                    <property name="tabTheme">OpenTextThemeReportItem.OpenText:Dark</property>
                     <property name="title">Contact Form KPI</property>
                     <property name="backgroundColor">RGB(240,242,245)</property>
                     <property name="sections">
                         <section id="47">
-                            <property name="width">10.91891891891892%</property>
+                            <property name="width">10%</property>
                             <property name="gadgets">
                                 <gadget name="Gadget_8447c2a7-c92d-42b4-b7a9-8a3ba2022a48" id="1088">
+                                    <list-property name="userProperties">
+                                        <structure>
+                                            <property name="name">userPreferences</property>
+                                            <property name="type">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="userPreferences">{}</property>
                                     <property name="title">Year</property>
                                     <property name="showTitle">true</property>
                                     <property name="showBorder">true</property>
                                     <property name="zIndex">12</property>
                                     <property name="showScrollBar">false</property>
-                                    <property name="height">123px</property>
+                                    <property name="height">191px</property>
                                     <property name="caption">
                                         <gadget-caption id="1089">
                                             <property name="showCaption">true</property>
                                             <property name="horizontalAlignment">left</property>
                                             <property name="fontFamily">"Lato"</property>
-                                            <property name="fontSize">18pt</property>
+                                            <property name="fontSize">16pt</property>
                                             <property name="fontWeight">normal</property>
                                             <property name="fontStyle">normal</property>
-                                            <property name="color">#353535</property>
+                                            <property name="color">#FFFFFF</property>
                                             <property name="textUnderline">none</property>
                                         </gadget-caption>
                                     </property>
@@ -9582,21 +9633,28 @@
                                     </property>
                                 </gadget>
                                 <gadget name="Gadget_17052240-9bf8-472b-98ac-46d5165f00a0" id="1091">
+                                    <list-property name="userProperties">
+                                        <structure>
+                                            <property name="name">userPreferences</property>
+                                            <property name="type">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="userPreferences">{}</property>
                                     <property name="title">Priority Level</property>
                                     <property name="showTitle">true</property>
                                     <property name="showBorder">true</property>
                                     <property name="zIndex">11</property>
                                     <property name="showScrollBar">false</property>
-                                    <property name="height">169px</property>
+                                    <property name="height">222px</property>
                                     <property name="caption">
                                         <gadget-caption id="1093">
                                             <property name="showCaption">true</property>
                                             <property name="horizontalAlignment">left</property>
                                             <property name="fontFamily">"Lato"</property>
-                                            <property name="fontSize">18pt</property>
+                                            <property name="fontSize">16pt</property>
                                             <property name="fontWeight">normal</property>
                                             <property name="fontStyle">normal</property>
-                                            <property name="color">#353535</property>
+                                            <property name="color">#FFFFFF</property>
                                             <property name="textUnderline">none</property>
                                         </gadget-caption>
                                     </property>
@@ -9671,6 +9729,13 @@
                                     </property>
                                 </gadget>
                                 <gadget name="Gadget_7d29bf70-9da3-4a2f-9ea6-cb714a0c2e38" id="1094">
+                                    <list-property name="userProperties">
+                                        <structure>
+                                            <property name="name">userPreferences</property>
+                                            <property name="type">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="userPreferences">{}</property>
                                     <property name="title">Country</property>
                                     <property name="showTitle">true</property>
                                     <property name="showBorder">true</property>
@@ -9683,10 +9748,10 @@
                                             <property name="showCaption">true</property>
                                             <property name="horizontalAlignment">left</property>
                                             <property name="fontFamily">"Lato"</property>
-                                            <property name="fontSize">18pt</property>
+                                            <property name="fontSize">16pt</property>
                                             <property name="fontWeight">normal</property>
                                             <property name="fontStyle">normal</property>
-                                            <property name="color">#353535</property>
+                                            <property name="color">#FFFFFF</property>
                                             <property name="textUnderline">none</property>
                                         </gadget-caption>
                                     </property>
@@ -9773,22 +9838,29 @@
                                     </property>
                                 </gadget>
                                 <gadget name="Gadget_98ccc17e-8fda-4605-a580-590bbdb99add" id="1097">
+                                    <list-property name="userProperties">
+                                        <structure>
+                                            <property name="name">userPreferences</property>
+                                            <property name="type">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="userPreferences">{}</property>
                                     <property name="title">Inquiry Type</property>
                                     <property name="showTitle">true</property>
                                     <property name="showBorder">true</property>
                                     <property name="zIndex">9</property>
                                     <property name="showScrollBar">false</property>
-                                    <property name="height">245px</property>
+                                    <property name="height">152px</property>
                                     <property name="width">189px</property>
                                     <property name="caption">
                                         <gadget-caption id="1099">
                                             <property name="showCaption">true</property>
                                             <property name="horizontalAlignment">left</property>
                                             <property name="fontFamily">"Lato"</property>
-                                            <property name="fontSize">18pt</property>
+                                            <property name="fontSize">16pt</property>
                                             <property name="fontWeight">normal</property>
                                             <property name="fontStyle">normal</property>
-                                            <property name="color">#353535</property>
+                                            <property name="color">#FFFFFF</property>
                                             <property name="textUnderline">none</property>
                                         </gadget-caption>
                                     </property>
@@ -9874,6 +9946,13 @@
                                     </property>
                                 </gadget>
                                 <gadget name="098ed1e2-3b68-447d-b944-c50fdd33d9da" id="49">
+                                    <list-property name="userProperties">
+                                        <structure>
+                                            <property name="name">userPreferences</property>
+                                            <property name="type">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="userPreferences">{}</property>
                                     <property name="zIndex">1</property>
                                     <property name="isVisible">false</property>
                                     <property name="height">150px</property>
@@ -9882,9 +9961,9 @@
                                             <property name="showCaption">true</property>
                                             <property name="horizontalAlignment">left</property>
                                             <property name="fontFamily">"Lato"</property>
-                                            <property name="fontSize">24pt</property>
+                                            <property name="fontSize">16pt</property>
                                             <property name="fontWeight">bold</property>
-                                            <property name="color">#000000</property>
+                                            <property name="color">#FFFFFF</property>
                                         </gadget-caption>
                                     </property>
                                     <property name="content">
@@ -9917,29 +9996,36 @@
                             </property>
                         </section>
                         <section id="48">
-                            <property name="width">89.08108108108108%</property>
+                            <property name="width">90%</property>
                         </section>
                     </property>
                     <property name="freeFormGadgets">
                         <gadget name="Gadget_274d0d7c-2e8f-4a87-b4fe-f23e66ab2aeb" id="1145">
-                            <property name="x">1049px</property>
-                            <property name="y">11px</property>
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{"gadget-caption":{}}</property>
+                            <property name="x">1048px</property>
+                            <property name="y">9px</property>
                             <property name="title">AutoProcessTable - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">15</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">152px</property>
+                            <property name="height">168in</property>
                             <property name="width">390px</property>
                             <property name="caption">
                                 <gadget-caption id="1146">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10013,6 +10099,13 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_1662e807-2ef3-4ea4-b3bc-e2bfda9deff9" id="1148">
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{"gadget-caption":{}}</property>
                             <property name="x">634px</property>
                             <property name="y">10px</property>
                             <property name="title">AtRiskTable - ThemesClassificationDemo.rptlibrary</property>
@@ -10020,17 +10113,17 @@
                             <property name="showBorder">true</property>
                             <property name="zIndex">25</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">152px</property>
+                            <property name="height">168px</property>
                             <property name="width">390px</property>
                             <property name="caption">
                                 <gadget-caption id="1149">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10104,6 +10197,13 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_aa8388f8-669f-4a2a-9a5e-4c416bf215c3" id="1151">
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{"gadget-caption":{}}</property>
                             <property name="x">219px</property>
                             <property name="y">10px</property>
                             <property name="title">p1Table - ThemesClassificationDemo.rptlibrary</property>
@@ -10111,17 +10211,17 @@
                             <property name="showBorder">true</property>
                             <property name="zIndex">17</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">152px</property>
+                            <property name="height">168in</property>
                             <property name="width">390px</property>
                             <property name="caption">
                                 <gadget-caption id="1152">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10195,24 +10295,31 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_266bacdc-8488-45f8-88d4-61d079a0c010" id="1166">
-                            <property name="x">221px</property>
-                            <property name="y">498px</property>
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{}</property>
+                            <property name="x">220px</property>
+                            <property name="y">593px</property>
                             <property name="title">SubmissionTotalsChart - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">20</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">336px</property>
+                            <property name="height">312px</property>
                             <property name="width">1633px</property>
                             <property name="caption">
                                 <gadget-caption id="1167">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10296,24 +10403,31 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_e8c3c577-a29c-4689-8839-442a298cd7d5" id="1222">
-                            <property name="x">1049px</property>
-                            <property name="y">182px</property>
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{}</property>
+                            <property name="x">1048px</property>
+                            <property name="y">240px</property>
                             <property name="title">CategoryChart - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">22</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">297px</property>
+                            <property name="height">292px</property>
                             <property name="width">805px</property>
                             <property name="caption">
                                 <gadget-caption id="1223">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10397,24 +10511,31 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_931803ba-9b54-4b8a-a0ee-4e675d192057" id="1236">
-                            <property name="x">220px</property>
-                            <property name="y">181px</property>
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{}</property>
+                            <property name="x">221px</property>
+                            <property name="y">240px</property>
                             <property name="title">PriorityLevelChart - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">23</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">297px</property>
+                            <property name="height">294px</property>
                             <property name="width">805px</property>
                             <property name="caption">
                                 <gadget-caption id="1237">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
@@ -10498,24 +10619,31 @@
                             </property>
                         </gadget>
                         <gadget name="Gadget_9f0d19c5-3d24-487a-878c-7e7be27a1157" id="1250">
-                            <property name="x">1463px</property>
-                            <property name="y">10px</property>
+                            <list-property name="userProperties">
+                                <structure>
+                                    <property name="name">userPreferences</property>
+                                    <property name="type">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="userPreferences">{"gadget-caption":{}}</property>
+                            <property name="x">1461px</property>
+                            <property name="y">9px</property>
                             <property name="title">ManualReviewTable - ThemesClassificationDemo.rptlibrary</property>
                             <property name="showTitle">true</property>
                             <property name="showBorder">true</property>
                             <property name="zIndex">24</property>
                             <property name="showScrollBar">false</property>
-                            <property name="height">152px</property>
+                            <property name="height">168in</property>
                             <property name="width">390px</property>
                             <property name="caption">
                                 <gadget-caption id="1251">
                                     <property name="showCaption">false</property>
                                     <property name="horizontalAlignment">left</property>
                                     <property name="fontFamily">"Lato"</property>
-                                    <property name="fontSize">18pt</property>
+                                    <property name="fontSize">16pt</property>
                                     <property name="fontWeight">normal</property>
                                     <property name="fontStyle">normal</property>
-                                    <property name="color">#353535</property>
+                                    <property name="color">#FFFFFF</property>
                                     <property name="textUnderline">none</property>
                                 </gadget-caption>
                             </property>
